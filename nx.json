@@ -13,6 +13,12 @@
     },
     "web-e2e": {
       "tags": []
+    },
+    "admin": {
+      "tags": []
+    },
+    "admin-e2e": {
+      "tags": []
     }
   }
 }
