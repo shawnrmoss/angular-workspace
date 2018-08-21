@@ -19,6 +19,15 @@
     },
     "admin-e2e": {
       "tags": []
+    },
+    "core": {
+      "tags": []
+    },
+    "shared": {
+      "tags": []
+    },
+    "theme": {
+      "tags": []
     }
   }
 }
