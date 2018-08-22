@@ -10,7 +10,7 @@ import { SharedModule } from '@angular-workspace/shared';
 
 // From Feature
 import { themeEffects, themeReducer } from './store';
-import { ToolbarComponent } from './components';
+import { ToolbarComponent, FooterComponent } from './components';
 import { ShellComponent } from './containers';
 
 @NgModule({
@@ -25,7 +25,7 @@ import { ShellComponent } from './containers';
     StoreModule.forFeature('theme', themeReducer),
     EffectsModule.forFeature(themeEffects)
   ],
-  declarations: [ShellComponent, ToolbarComponent],
+  declarations: [ShellComponent, ToolbarComponent, FooterComponent],
   exports: [ShellComponent, ToolbarComponent]
 })
 export class ThemeModule {}
