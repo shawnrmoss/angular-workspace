@@ -1,7 +1,6 @@
 import { Title } from '@angular/platform-browser';
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot } from '@angular/router';
-import { filter } from 'rxjs/operators';
 
 @Injectable()
 export class TitleService {
