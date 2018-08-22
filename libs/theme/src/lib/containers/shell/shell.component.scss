@@ -1,0 +1,41 @@
+@import './libs/theme/src/lib/sass/styles-app';
+
+.fm-sidebar-nav {
+  margin-top: 5px;
+}
+
+.frm-sidenav {
+  width: 300px;
+
+  .branding {
+    height: 64px;
+    padding: 8px 10px;
+    font-size: 20px;
+    font-weight: 500;
+
+    img {
+      margin: 0 10px 0 0;
+    }
+
+    span {
+      position: relative;
+      top: 3px;
+    }
+  }
+
+  .mat-nav-list {
+    padding-top: 0;
+  }
+}
+
+.frm-calendarnav {
+  width: 300px;
+
+  mgl-timeline:not(.mobile) {
+    padding: 50px 20px;
+  }
+
+  mgl-timeline.mobile {
+    padding-right: 20px;
+  }
+}
