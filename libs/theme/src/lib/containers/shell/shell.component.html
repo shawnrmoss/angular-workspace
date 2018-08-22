@@ -11,7 +11,7 @@
       </mat-nav-list>
     </mat-sidenav>
 
-    <angular-workspace-toolbar [logo]="theme.shell.logo" [loading]="theme.shell.loading" (navigationToggle)="toggleLeftSideNav()" (calendarToggle)="toggleRightSideNav()">
+    <angular-workspace-toolbar [logo]="theme.shell.logo" [loading]="theme.shell.loading" (leftNavigationToggle)="toggleLeftSideNav()" (rightNavigationToggle)="toggleRightSideNav()">
     </angular-workspace-toolbar>
 
     <div class="content" [@routeAnimations]="o.isActivated && o.activatedRoute.routeConfig.path">
