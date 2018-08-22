@@ -3,8 +3,8 @@ import { ShellActions, ShellActionTypes } from '../actions';
 export const initialShellState: ShellState = {
   logo: '',
   navigation: null,
-  navigationSideNavOpen: false,
-  calendarSideNavOpen: false,
+  leftSideNavOpen: false,
+  rightSideNavOpen: false,
   loading: false
 };
 
@@ -13,20 +13,20 @@ export function shellReducer(
   action: ShellActions
 ): ShellState {
   switch (action.type) {
-    case ShellActionTypes.TOGGLE_NAV_SIDENAV:
-      return { ...state, navigationSideNavOpen: action.payload.toggle };
-
-    case ShellActionTypes.TOGGLE_CALENDAR_SIDENAV:
-      return { ...state, calendarSideNavOpen: action.payload.toggle };
-
-    case ShellActionTypes.TOGGLE_LOADING:
-      return { ...state, loading: action.payload.toggle };
-
     case ShellActionTypes.SET_LOGO:
       return { ...state, logo: action.payload.logo };
 
     case ShellActionTypes.SET_NAVIGATION:
       return { ...state, navigation: action.payload.navigation };
+
+    case ShellActionTypes.TOGGLE_LEFT_SIDENAV:
+      return { ...state, leftSideNavOpen: action.payload.toggle };
+
+    case ShellActionTypes.TOGGLE_RIGHT_SIDENAV:
+      return { ...state, rightSideNavOpen: action.payload.toggle };
+
+    case ShellActionTypes.TOGGLE_LOADING:
+      return { ...state, loading: action.payload.toggle };
 
     default:
       return state;
@@ -36,7 +36,7 @@ export function shellReducer(
 export interface ShellState {
   logo: string;
   navigation: string[];
-  navigationSideNavOpen: boolean;
-  calendarSideNavOpen: boolean;
+  leftSideNavOpen: boolean;
+  rightSideNavOpen: boolean;
   loading: boolean;
 }

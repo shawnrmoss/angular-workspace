@@ -11,8 +11,8 @@ import { Store } from '@ngrx/store';
 import {
   selectorTheme,
   ThemeState,
-  ActionShellToggleSidenav,
-  ActionShellToggleCalendarSidenav
+  ToggleLeftSidenav,
+  ToggleRightSidenav
 } from '../../store';
 
 @Component({
@@ -64,18 +64,18 @@ export class ShellComponent implements OnInit, OnDestroy {
     this.unsubscribe$.complete();
   }
 
-  toggleSideNav() {
+  toggleLeftSideNav() {
     this.store.dispatch(
-      new ActionShellToggleSidenav({
-        toggle: !this.theme.shell.navigationSideNavOpen
+      new ToggleLeftSidenav({
+        toggle: !this.theme.shell.leftSideNavOpen
       })
     );
   }
 
-  toggleCalendarNav() {
+  toggleRightSideNav() {
     this.store.dispatch(
-      new ActionShellToggleCalendarSidenav({
-        toggle: !this.theme.shell.calendarSideNavOpen
+      new ToggleRightSidenav({
+        toggle: !this.theme.shell.rightSideNavOpen
       })
     );
   }

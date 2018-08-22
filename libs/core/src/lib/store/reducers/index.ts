@@ -8,11 +8,11 @@ import {
 
 import { RouterStateUrl } from '../../models/router.model';
 
-export interface AppState {
+export interface CoreState {
   router: RouterReducerState<RouterStateUrl>;
 }
 
-export const coreReducers: ActionReducerMap<AppState> = {
+export const coreReducers: ActionReducerMap<CoreState> = {
   router: routerReducer
 };
 
