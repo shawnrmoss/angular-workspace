@@ -8,9 +8,9 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'angular-workspace-toolbar',
-  templateUrl: './toolbar.component.html',
-  styleUrls: ['./toolbar.component.scss']
+  selector: 'angular-workspace-app-bar',
+  templateUrl: './app-bar.component.html',
+  styleUrls: ['./app-bar.component.scss']
 })
 export class ToolbarComponent implements OnInit {
   @HostBinding('class') hostClasses = 'toolbar';

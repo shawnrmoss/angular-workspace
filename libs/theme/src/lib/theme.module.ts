@@ -12,6 +12,7 @@ import { SharedModule } from '@angular-workspace/shared';
 import { themeEffects, themeReducer } from './store';
 import { ToolbarComponent, FooterComponent } from './components';
 import { ShellComponent } from './containers';
+import { AppBarComponent } from './components/app-bar/app-bar.component';
 
 @NgModule({
   imports: [
@@ -25,7 +26,7 @@ import { ShellComponent } from './containers';
     StoreModule.forFeature('theme', themeReducer),
     EffectsModule.forFeature(themeEffects)
   ],
-  declarations: [ShellComponent, ToolbarComponent, FooterComponent],
+  declarations: [ShellComponent, ToolbarComponent, FooterComponent, AppBarComponent],
   exports: [ShellComponent, ToolbarComponent]
 })
 export class ThemeModule {}

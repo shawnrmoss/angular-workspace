@@ -1,28 +1,28 @@
 <mat-sidenav-container>
-    <mat-sidenav class="aw-sidenav" #leftsidenav mode="over" position="start" [opened]="layout.navigationSideNavOpen" (closedStart)="toggleLeftSideNav()">
+    <mat-sidenav class="aw-sidenav" #leftsidenav mode="over" position="start" [opened]="theme.shell.leftSideNavOpen" (closedStart)="toggleLeftSideNav()">
       <div class="branding">
-        <img [src]="app.logo" />
+        <img [src]="theme.shell.logo" />
         <span> Pocket</span>
       </div>
       <mat-nav-list class="aw-left-sidenav">
-        <a mat-list-item *ngFor="let item of app.navigation" (click)="toggleLeftSideNav()" [routerLink]="[item.link]" routerLinkActive="active">
-          {{item.label}}
+        <a mat-list-item *ngFor="let item of theme.shell.navigation" (click)="toggleLeftSideNav()" [routerLink]="[item.link]" routerLinkActive="active">
+          {{item}}
         </a>
       </mat-nav-list>
     </mat-sidenav>
 
-    <angular-workspace-toolbar [logo]="theme.shell.logo" [loading]="theme.shell.loading" (leftNavigationToggle)="toggleLeftSideNav()" (rightNavigationToggle)="toggleRightSideNav()">
-    </angular-workspace-toolbar>
+    <angular-workspace-app-bar [logo]="theme.shell.logo" [loading]="theme.shell.loading" (leftNavigationToggle)="toggleLeftSideNav()" (rightNavigationToggle)="toggleRightSideNav()">
+    </angular-workspace-app-bar>
 
-    <div class="content" [@routeAnimations]="o.isActivated && o.activatedRoute.routeConfig.path">
-      <router-outlet #o="outlet"></router-outlet>
-    </div>
+    <ng-content></ng-content>
 
-    <angular-workspace-footer></angular-workspace>
-
-    <mat-sidenav class="aw-right-sidenav" #rightsidenav mode="over" position="end" [opened]="layout.calendarSideNavOpen" (closedStart)="toggleRightSideNav()">
-
+    <mat-sidenav class="aw-right-sidenav" #rightsidenav mode="over" position="end" [opened]="theme.shell.rightSideNavOpen" (closedStart)="toggleRightSideNav()">
+      <p>
+        This is the right side
+      </p>
 
     </mat-sidenav>
 
 </mat-sidenav-container>
+
+<angular-workspace-footer></angular-workspace-footer>
