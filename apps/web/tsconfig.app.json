@@ -4,12 +4,10 @@
     "outDir": "../../dist/out-tsc/apps/web",
     "types": []
   },
-  "exclude": [
-    "test.ts",
-    "**/*.spec.ts",
-    "karma.conf.ts"
-  ],
+  "exclude": ["test.ts", "**/*.spec.ts", "karma.conf.ts"],
   "include": [
-    "**/*.ts"
+    "**/*.ts",
+    /* add all lazy-loaded libraries here: "../../../libs/my-lib/index.ts" */
+    "../../libs/home/src/index.ts"
   ]
 }

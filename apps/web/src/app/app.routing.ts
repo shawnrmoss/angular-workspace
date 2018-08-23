@@ -7,7 +7,7 @@ const routes: Routes = [
     children: [
       {
         path: 'home',
-        loadChildren: '@angular-workspace/home#HomeModule',
+        loadChildren: '@angular-workspace/feed#FeedModule',
         data: {
           title: 'Home'
         }

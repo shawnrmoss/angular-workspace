@@ -24,8 +24,8 @@ import {
   initStateFromLocalStorage,
   LocalStorageService
 } from '@angular-workspace/core';
-import { ThemeModule } from '@angular-workspace/theme';
 import { SharedModule } from '@angular-workspace/shared';
+import { ThemeModule } from '@angular-workspace/theme';
 
 // Feature Modules
 
@@ -61,8 +61,8 @@ if (!environment.production) {
 
     // Core and Shared
     CoreModule.forRoot(),
-    ThemeModule,
     SharedModule,
+    ThemeModule,
 
     // App
     AppRoutingModule
