@@ -32,7 +32,7 @@ export class SetLogo implements Action {
 
 export class SetNavigation implements Action {
   readonly type = ShellActionTypes.SET_NAVIGATION;
-  constructor(public payload: { navigation: string[] }) {}
+  constructor(public payload: { navigation: any }) {}
 }
 
 export type ShellActions =
