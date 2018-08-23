@@ -8,19 +8,15 @@ import { Store } from '@ngrx/store';
 // Core and Shared
 
 // From Features
-import {
-  selectorTheme,
-  ThemeState,
-  ToggleLeftSidenav,
-  ToggleRightSidenav
-} from '../../store';
+import { selectorTheme, ThemeState, ToggleRightSidenav } from '../../store';
+import { Back } from '@angular-workspace/core';
 
 @Component({
-  selector: 'angular-workspace-shell',
-  templateUrl: './shell.component.html',
-  styleUrls: ['./shell.component.scss']
+  selector: 'angular-workspace-details',
+  templateUrl: './details.component.html',
+  styleUrls: ['./details.component.scss']
 })
-export class ShellComponent implements OnInit, OnDestroy {
+export class DetailsComponent implements OnInit, OnDestroy {
   private unsubscribe$: Subject<void> = new Subject<void>();
   theme: ThemeState;
 
@@ -40,12 +36,8 @@ export class ShellComponent implements OnInit, OnDestroy {
     this.unsubscribe$.complete();
   }
 
-  toggleLeftSideNav() {
-    this.store.dispatch(
-      new ToggleLeftSidenav({
-        toggle: !this.theme.shell.leftSideNavOpen
-      })
-    );
+  back() {
+    this.store.dispatch(new Back());
   }
 
   toggleRightSideNav() {

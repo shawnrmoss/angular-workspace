@@ -1,26 +1,5 @@
 <mat-progress-bar mode="indeterminate" *ngIf="loading"></mat-progress-bar>
 <div class="aw-topbar primary-background" *ngIf="!loading"></div>
 <mat-toolbar color="primary">
-  <mat-toolbar-row>
-    <button mat-icon-button (click)="toggleLeftSideNav()">
-      <mat-icon>{{icon}}</mat-icon>
-    </button>
-
-    <span class="branding">
-      <img [src]="logo" /> Pocket</span>
-
-    <div class="spacer"></div>
-
-    <button mat-icon-button (click)="toggleRightSideNav()" >
-      <mat-icon>date_range</mat-icon>
-    </button>
-    <button mat-icon-button [matMenuTriggerFor]="menu">
-      <mat-icon>account_circle</mat-icon>
-    </button>
-    <mat-menu #menu="matMenu">
-      <button mat-menu-item>
-        <span>My Account</span>
-      </button>
-    </mat-menu>
-  </mat-toolbar-row>
+  <ng-content></ng-content>
 </mat-toolbar>

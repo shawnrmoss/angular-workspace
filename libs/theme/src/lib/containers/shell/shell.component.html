@@ -11,7 +11,29 @@
       </mat-nav-list>
     </mat-sidenav>
 
-    <angular-workspace-app-bar [logo]="theme.shell.logo" [loading]="theme.shell.loading" (leftNavigationToggle)="toggleLeftSideNav()" (rightNavigationToggle)="toggleRightSideNav()">
+    <angular-workspace-app-bar [loading]="theme.shell.loading" >
+        <mat-toolbar-row>
+          <button mat-icon-button (click)="toggleLeftSideNav()">
+            <mat-icon>menu</mat-icon>
+          </button>
+
+          <span class="branding">
+            <img [src]="theme.shell.logo" /> Angular Workspaces</span>
+
+          <div class="spacer"></div>
+
+          <button mat-icon-button (click)="toggleRightSideNav()" >
+            <mat-icon>people</mat-icon>
+          </button>
+          <button mat-icon-button [matMenuTriggerFor]="menu">
+            <mat-icon>account_circle</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item>
+              <span>My Account</span>
+            </button>
+          </mat-menu>
+        </mat-toolbar-row>
     </angular-workspace-app-bar>
 
     <ng-content></ng-content>
@@ -20,7 +42,6 @@
       <p>
         This is the right side
       </p>
-
     </mat-sidenav>
 
 </mat-sidenav-container>
