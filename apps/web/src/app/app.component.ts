@@ -10,7 +10,11 @@ import { takeUntil, filter } from 'rxjs/operators';
 
 // Features
 import { SetLogo, SetNavigation } from '@angular-workspace/theme';
-import { SettingsState, getSelectedTheme } from '@angular-workspace/settings';
+import {
+  SettingsState,
+  getSelectedTheme,
+  getSettingsState
+} from '@angular-workspace/settings';
 
 // App
 import { environment as env } from '../environments/environment';
@@ -40,15 +44,21 @@ export class AppComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     // Set the theme for the app
-    this.settingsStore.select(getSelectedTheme).subscribe(selectedTheme => {
-      this.componentCssClass = selectedTheme.value;
-      const classList = this.overlayContainer.getContainerElement().classList;
-      const toRemove = Array.from(classList).filter((item: string) =>
-        item.includes('-theme')
-      );
-      classList.remove(...toRemove);
-      classList.add(selectedTheme.value);
-    });
+    this.settingsStore
+      .select(getSettingsState)
+      .pipe(takeUntil(this.unsubscribe$))
+      .subscribe(settings => {
+        console.log(settings);
+        //const effectiveTheme = settings.selectedTheme.label;
+        const effectiveTheme = 'DEFAULT-THEME';
+        this.componentCssClass = effectiveTheme;
+        const classList = this.overlayContainer.getContainerElement().classList;
+        const toRemove = Array.from(classList).filter((item: string) =>
+          item.includes('-theme')
+        );
+        classList.remove(...toRemove);
+        classList.add(effectiveTheme);
+      });
 
     // Set the page title
     this.router.events
