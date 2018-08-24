@@ -10,7 +10,9 @@ import { takeUntil, filter } from 'rxjs/operators';
 
 // Features
 import { SetLogo, SetNavigation } from '@angular-workspace/theme';
+import { SettingsState, getSelectedTheme } from '@angular-workspace/settings';
 
+// App
 import { environment as env } from '../environments/environment';
 
 @Component({
@@ -31,11 +33,24 @@ export class AppComponent implements OnInit, OnDestroy {
   constructor(
     public overlayContainer: OverlayContainer,
     private store: Store<any>,
+    private settingsStore: Store<SettingsState>,
     private router: Router,
     private titleService: Title
   ) {}
 
   ngOnInit(): void {
+    // Set the theme for the app
+    this.settingsStore.select(getSelectedTheme).subscribe(selectedTheme => {
+      this.componentCssClass = selectedTheme.value;
+      const classList = this.overlayContainer.getContainerElement().classList;
+      const toRemove = Array.from(classList).filter((item: string) =>
+        item.includes('-theme')
+      );
+      classList.remove(...toRemove);
+      classList.add(selectedTheme.value);
+    });
+
+    // Set the page title
     this.router.events
       .pipe(
         takeUntil(this.unsubscribe$),

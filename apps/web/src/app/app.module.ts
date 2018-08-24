@@ -26,8 +26,7 @@ import {
 } from '@angular-workspace/core';
 import { SharedModule } from '@angular-workspace/shared';
 import { ThemeModule } from '@angular-workspace/theme';
-
-// Feature Modules
+import { SettingsModule } from '@angular-workspace/settings';
 
 // App
 import { AppComponent } from './app.component';
@@ -63,6 +62,7 @@ if (!environment.production) {
     CoreModule.forRoot(),
     SharedModule,
     ThemeModule,
+    SettingsModule,
 
     // App
     AppRoutingModule
