@@ -2,7 +2,7 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "outDir": "../../dist/out-tsc/apps/web",
-    "types": []
+    "types": ["node"]
   },
   "exclude": ["test.ts", "**/*.spec.ts", "karma.conf.ts"],
   "include": [

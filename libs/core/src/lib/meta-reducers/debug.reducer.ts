@@ -1,10 +1,10 @@
 import { ActionReducer } from '@ngrx/store';
 
-import { AppState } from '../store';
+import { CoreState } from '../store';
 
 export function debug(
-  reducer: ActionReducer<AppState>
-): ActionReducer<AppState> {
+  reducer: ActionReducer<CoreState>
+): ActionReducer<CoreState> {
   return function(state, action) {
     const newState = reducer(state, action);
     console.log(`[DEBUG] action: ${action.type}`, {

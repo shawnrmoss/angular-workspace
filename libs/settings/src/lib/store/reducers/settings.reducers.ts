@@ -29,7 +29,7 @@ export function settingsReducer(
 ): SettingsState {
   switch (action.type) {
     case SettingsActionTypes.CHANGE_THEME:
-      return { ...state, selectedTheme: action.payload.theme };
+      return { ...state, selectedTheme: action.theme };
 
     default:
       return state;

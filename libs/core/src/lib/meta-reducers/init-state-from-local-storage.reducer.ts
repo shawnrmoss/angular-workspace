@@ -1,11 +1,11 @@
 import { ActionReducer, INIT, UPDATE } from '@ngrx/store';
 
 import { LocalStorageService } from '../services/local-storage.service';
-import { AppState } from '../store';
+import { CoreState } from '../store';
 
 export function initStateFromLocalStorage(
-  reducer: ActionReducer<AppState>
-): ActionReducer<AppState> {
+  reducer: ActionReducer<CoreState>
+): ActionReducer<CoreState> {
   return function(state, action) {
     const newState = reducer(state, action);
     if ([INIT.toString(), UPDATE.toString()].includes(action.type)) {

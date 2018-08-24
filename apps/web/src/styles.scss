@@ -1,0 +1,55 @@
+/* You can add global styles to this file, and also import other style files */
+@import './libs/theme/src/lib/sass/styles-variables';
+
+// @import '~node_modules/bootstrap/scss/bootstrap-reboot';
+// @import '~node_modules/bootstrap/scss/bootstrap-grid';
+// @import '~node_modules/bootstrap/scss/utilities';
+
+// @import '~node_modules/font-awesome/scss/font-awesome';
+
+@import './libs/theme/src/lib/sass/styles-reset';
+
+@import '~@angular/material/theming';
+
+@include mat-core();
+
+@import './libs/theme/src/lib/sass/default-theme.scss';
+@import './libs/theme/src/lib/sass/light-theme.scss';
+@import './libs/theme/src/lib/sass/black-theme.scss';
+
+@import './libs/theme/src/lib/sass/styles-reset.scss-theme';
+
+@import 'app/app.component.scss-theme';
+
+// TODO - Must add all feature module styles you add to your app here
+// @import 'web/static/about/about.component.scss-theme';
+// @import 'core/src/about/about.component.scss-theme';
+
+@mixin custom-components-theme($theme) {
+  @include aw-styles-reset-theme($theme);
+  @include aw-web-theme($theme);
+  /*
+
+  @include anms-about-component-theme($theme);
+  @include anms-big-input-component-theme($theme);
+  @include anms-todos-component-theme($theme);
+  @include anms-examples-component-theme($theme);
+  @include anms-parent-component-theme($theme);
+  @include anms-child-component-theme($theme);
+  */
+}
+
+.default-theme {
+  @include angular-material-theme($aw-theme);
+  @include custom-components-theme($aw-theme);
+}
+
+.light-theme {
+  @include angular-material-theme($aw-light-theme);
+  @include custom-components-theme($aw-light-theme);
+}
+
+.black-theme {
+  @include angular-material-theme($aw-black-theme);
+  @include custom-components-theme($aw-black-theme);
+}
