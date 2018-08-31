@@ -6,7 +6,7 @@ import { Component, OnInit, Input, HostBinding } from '@angular/core';
   styleUrls: ['./app-bar.component.scss']
 })
 export class AppBarComponent implements OnInit {
-  @HostBinding('class') hostClasses = 'toolbar';
+  @HostBinding('class') hostClasses = 'appbar';
   @Input('loading') loading: false;
 
   constructor() {}
