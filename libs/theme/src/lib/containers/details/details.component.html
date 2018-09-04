@@ -1,27 +1,5 @@
 <mat-sidenav-container>
-  <angular-workspace-app-bar [loading]="theme.shell.loading" >
-      <mat-toolbar-row>
-          <button mat-icon-button (click)="back()">
-            <mat-icon>arrow_back</mat-icon>
-          </button>
-
-          <span class="branding">
-            <img [src]="theme.shell.logo" /> Angular Workspaces</span>
-
-          <div class="spacer"></div>
-
-          <button mat-icon-button (click)="toggleRightSideNav()" >
-            <mat-icon>people</mat-icon>
-          </button>
-          <button mat-icon-button [matMenuTriggerFor]="menu">
-            <mat-icon>account_circle</mat-icon>
-          </button>
-          <mat-menu #menu="matMenu">
-            <button mat-menu-item>
-              <span>My Account</span>
-            </button>
-          </mat-menu>
-      </mat-toolbar-row>
+  <angular-workspace-app-bar [logo]="theme.shell.logo" [loading]="theme.shell.loading" (back)="onBack()" (toggleRightSideNav)="onToggleRightSideNav()" >
   </angular-workspace-app-bar>
 
   <ng-content></ng-content>

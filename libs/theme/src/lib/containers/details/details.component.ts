@@ -35,12 +35,12 @@ export class DetailsComponent implements OnInit, OnDestroy {
     this.unsubscribe$.next();
     this.unsubscribe$.complete();
   }
-
-  back() {
+  
+  onBack() {
     this.store.dispatch(new Back());
   }
 
-  toggleRightSideNav() {
+  onToggleRightSideNav() {
     this.store.dispatch(
       new ToggleRightSidenav({
         toggle: !this.theme.shell.rightSideNavOpen

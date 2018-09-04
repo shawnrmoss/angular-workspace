@@ -40,7 +40,7 @@ export class ShellComponent implements OnInit, OnDestroy {
     this.unsubscribe$.complete();
   }
 
-  toggleLeftSideNav() {
+  onToggleLeftSideNav() {
     this.store.dispatch(
       new ToggleLeftSidenav({
         toggle: !this.theme.shell.leftSideNavOpen
@@ -48,11 +48,13 @@ export class ShellComponent implements OnInit, OnDestroy {
     );
   }
 
-  toggleRightSideNav() {
+  onToggleRightSideNav() {
     this.store.dispatch(
       new ToggleRightSidenav({
         toggle: !this.theme.shell.rightSideNavOpen
       })
     );
   }
+
+  
 }

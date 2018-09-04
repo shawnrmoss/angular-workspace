@@ -1,44 +1,22 @@
 <mat-sidenav-container>
-    <mat-sidenav class="aw-sidenav" #leftsidenav mode="over" position="start" [opened]="theme.shell.leftSideNavOpen" (closedStart)="toggleLeftSideNav()">
+    <mat-sidenav class="aw-sidenav" #leftsidenav mode="over" position="start" [opened]="theme.shell.leftSideNavOpen" (closedStart)="onToggleLeftSideNav()">
       <div class="branding">
         <img [src]="theme.shell.logo" />
         <span> Pocket</span>
       </div>
       <mat-nav-list class="aw-left-sidenav">
         <a mat-list-item *ngFor="let item of theme.shell.navigation" (click)="toggleLeftSideNav()" [routerLink]="[item.link]" routerLinkActive="active">
-          {{item}}
+          {{item.label}}
         </a>
       </mat-nav-list>
     </mat-sidenav>
 
-    <angular-workspace-app-bar [loading]="theme.shell.loading" >
-        <mat-toolbar-row>
-          <button mat-icon-button (click)="toggleLeftSideNav()">
-            <mat-icon>menu</mat-icon>
-          </button>
-
-          <span class="branding">
-            <img [src]="theme.shell.logo" /> Angular Workspaces</span>
-
-          <div class="spacer"></div>
-
-          <button mat-icon-button (click)="toggleRightSideNav()" >
-            <mat-icon>people</mat-icon>
-          </button>
-          <button mat-icon-button [matMenuTriggerFor]="menu">
-            <mat-icon>account_circle</mat-icon>
-          </button>
-          <mat-menu #menu="matMenu">
-            <button mat-menu-item>
-              <span>My Account</span>
-            </button>
-          </mat-menu>
-        </mat-toolbar-row>
+    <angular-workspace-app-bar [logo]="theme.shell.logo" [loading]="theme.shell.loading" (toggleLeftSideNav)="onToggleLeftSideNav()" (toggleRightSideNav)="onToggleRightSideNav()" >
     </angular-workspace-app-bar>
 
     <ng-content></ng-content>
 
-    <mat-sidenav class="aw-right-sidenav" #rightsidenav mode="over" position="end" [opened]="theme.shell.rightSideNavOpen" (closedStart)="toggleRightSideNav()">
+    <mat-sidenav class="aw-right-sidenav" #rightsidenav mode="over" position="end" [opened]="theme.shell.rightSideNavOpen" (closedStart)="onToggleRightSideNav()">
       <p>
         This is the right side
       </p>
