@@ -5,16 +5,25 @@
         <span> Pocket</span>
       </div>
       <mat-nav-list class="aw-left-sidenav">
-        <a mat-list-item *ngFor="let item of theme.shell.navigation" (click)="toggleLeftSideNav()" [routerLink]="[item.link]" routerLinkActive="active">
+        <a mat-list-item *ngFor="let item of theme.shell.navigation" (click)="onToggleLeftSideNav()" [routerLink]="[item.link]" routerLinkActive="active">
           {{item.label}}
         </a>
       </mat-nav-list>
     </mat-sidenav>
 
-    <angular-workspace-app-bar [logo]="theme.shell.logo" [loading]="theme.shell.loading" (toggleLeftSideNav)="onToggleLeftSideNav()" (toggleRightSideNav)="onToggleRightSideNav()" >
-    </angular-workspace-app-bar>
+    <div class="wrapper">
+      <angular-workspace-app-bar [logo]="theme.shell.logo" [loading]="theme.shell.loading" (toggleLeftSideNav)="onToggleLeftSideNav()" (toggleRightSideNav)="onToggleRightSideNav()" >
+      </angular-workspace-app-bar>
 
-    <ng-content></ng-content>
+      <div class="content">
+        <ng-content></ng-content>
+      </div>
+
+      <div class="footer" >
+        <angular-workspace-footer></angular-workspace-footer>
+      </div>
+
+    </div>
 
     <mat-sidenav class="aw-right-sidenav" #rightsidenav mode="over" position="end" [opened]="theme.shell.rightSideNavOpen" (closedStart)="onToggleRightSideNav()">
       <p>
@@ -23,5 +32,3 @@
     </mat-sidenav>
 
 </mat-sidenav-container>
-
-<angular-workspace-footer></angular-workspace-footer>

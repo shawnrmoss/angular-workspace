@@ -11,7 +11,7 @@ import { SharedModule } from '@angular-workspace/shared';
 // From Feature
 import { themeEffects, themeReducer } from './store';
 import { AppBarComponent, FooterComponent } from './components';
-import { ShellComponent, DetailsComponent } from './containers';
+import { ShellComponent } from './containers';
 
 @NgModule({
   imports: [
@@ -28,7 +28,6 @@ import { ShellComponent, DetailsComponent } from './containers';
   declarations: [
     // Containers
     ShellComponent,
-    DetailsComponent,
 
     // Components
     AppBarComponent,
@@ -37,7 +36,6 @@ import { ShellComponent, DetailsComponent } from './containers';
   exports: [
     // Containers
     ShellComponent,
-    DetailsComponent,
 
     // Components
     AppBarComponent,
