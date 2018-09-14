@@ -6,7 +6,7 @@ import { Component, OnInit, Input, Output, HostBinding, EventEmitter } from '@an
   styleUrls: ['./app-bar.component.scss']
 })
 export class AppBarComponent implements OnInit {
-  @HostBinding('class') hostClasses = 'appbar';
+  @HostBinding('class') hostClasses = 'toolbar';
 
   @Input('loading') loading: false;
   @Input('logo') logo: string;
@@ -16,19 +16,19 @@ export class AppBarComponent implements OnInit {
   @Output() toggleRightSideNav = new EventEmitter();
   @Output() back = new EventEmitter();
 
-  constructor() {}
+  constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
-  onToggleLeftSideNav(){
+  onToggleLeftSideNav() {
     this.toggleLeftSideNav.emit();
   }
 
-  onToggleRightSideNav(){
+  onToggleRightSideNav() {
     this.toggleRightSideNav.emit();
   }
 
-  onBack(){
+  onBack() {
     this.back.emit();
   }
 

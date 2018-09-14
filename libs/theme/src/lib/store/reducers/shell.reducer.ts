@@ -2,6 +2,7 @@ import { ShellActions, ShellActionTypes } from '../actions';
 
 export const initialShellState: ShellState = {
   logo: '',
+  socialMediaLogos: [],
   navigation: null,
   leftSideNavOpen: false,
   rightSideNavOpen: false,
@@ -15,6 +16,9 @@ export function shellReducer(
   switch (action.type) {
     case ShellActionTypes.SET_LOGO:
       return { ...state, logo: action.payload.logo };
+
+    case ShellActionTypes.SET_SOCIAL_MEDIA_LOGOS:
+      return { ...state, socialMediaLogos: action.payload.logos };
 
     case ShellActionTypes.SET_NAVIGATION:
       return { ...state, navigation: action.payload.navigation };
@@ -35,6 +39,7 @@ export function shellReducer(
 
 export interface ShellState {
   logo: string;
+  socialMediaLogos: string[];
   navigation: string[];
   leftSideNavOpen: boolean;
   rightSideNavOpen: boolean;

@@ -59,60 +59,6 @@ mat-sidenav-container {
       padding: 0 15px;
       text-align: center;
       z-index: 1;
-
-      .row {
-        padding: 10px 0;
-
-        .links {
-          a {
-            transition: padding 0.5s;
-            display: inline-block;
-            padding: 20px 5px;
-
-            &:hover {
-              text-decoration: none;
-            }
-
-            span {
-              display: inline-block;
-              width: 70px;
-              padding: 0 0 0 5px;
-              overflow: hidden;
-              text-align: left;
-              white-space: nowrap;
-              transition: width 0.5s;
-            }
-          }
-
-          @media (max-width: map-get($grid-breakpoints, md)) {
-            a {
-              padding: 20px;
-
-              span {
-                width: 0;
-                padding: 0;
-              }
-            }
-          }
-
-          @media (max-width: map-get($grid-breakpoints, sm)) {
-            a {
-              padding: 20px 3px;
-            }
-          }
-        }
-
-        @media (min-width: map-get($grid-breakpoints, sm)) {
-          .signature {
-            position: relative;
-
-            a {
-              position: absolute;
-              right: 15px;
-            }
-          }
-        }
-      }
     }
   }
 }

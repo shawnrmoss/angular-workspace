@@ -9,7 +9,7 @@ import { Subject } from 'rxjs';
 import { takeUntil, filter } from 'rxjs/operators';
 
 // Features
-import { SetLogo, SetNavigation } from '@angular-workspace/theme';
+import { SetLogo, SetNavigation, SetSocialMediaLogos } from '@angular-workspace/theme';
 import {
   SettingsState,
   getSelectedTheme,
@@ -29,6 +29,11 @@ export class AppComponent implements OnInit, OnDestroy {
   @HostBinding('class') componentCssClass;
 
   logo = require('../assets/logo.png');
+  githubLogo = require('../assets/github.png');
+  mediumLogo = require('../assets/medium.png');
+  steemitLogo = require('../assets/steemit.png');
+  twitterLogo = require('../assets/twitter.png');
+
   navigation = [
     { link: '/home', label: 'Home' },
     { link: '/settings', label: 'Settings' }
@@ -40,7 +45,7 @@ export class AppComponent implements OnInit, OnDestroy {
     private settingsStore: Store<SettingsState>,
     private router: Router,
     private titleService: Title
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     // Set the theme for the app
@@ -79,6 +84,7 @@ export class AppComponent implements OnInit, OnDestroy {
 
     // TODO SM - Put these into a guard that protects the top level route.
     this.store.dispatch(new SetLogo({ logo: this.logo }));
+    this.store.dispatch(new SetSocialMediaLogos({ logos: [this.githubLogo, this.mediumLogo, this.steemitLogo, this.twitterLogo] }));
     this.store.dispatch(new SetNavigation({ navigation: this.navigation }));
   }
 

@@ -33,7 +33,7 @@ export class ShellComponent implements OnInit, OnDestroy {
       });
   }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   ngOnDestroy(): void {
     this.unsubscribe$.next();
@@ -56,5 +56,5 @@ export class ShellComponent implements OnInit, OnDestroy {
     );
   }
 
-  
+
 }
