@@ -1,6 +1,6 @@
 <mat-progress-bar mode="indeterminate" *ngIf="loading"></mat-progress-bar>
-<div class="aw-topbar primary-background" *ngIf="!loading"></div>
-<mat-toolbar color="primary">
+<div class="loading-bar" *ngIf="!loading"></div>
+<mat-toolbar  color="primary">
   <mat-toolbar-row>
     <button mat-icon-button (click)="onToggleLeftSideNav()" *ngIf="!isDetailsPage">
       <mat-icon>menu</mat-icon>
@@ -9,8 +9,10 @@
       <mat-icon>menu</mat-icon>
     </button>
 
-    <span class="branding">
-      <img [src]="logo" /> Angular Workspaces</span>
+    <span class="branding center">
+      <img [src]="logo" /></span>
+
+    <span class="title">Angular Workspaces</span>
 
     <div class="spacer"></div>
 

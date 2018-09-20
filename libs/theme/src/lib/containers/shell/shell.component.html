@@ -1,5 +1,5 @@
 <mat-sidenav-container>
-    <mat-sidenav class="aw-sidenav" #leftsidenav mode="over" position="start" [opened]="theme.shell.leftSideNavOpen" (closedStart)="onToggleLeftSideNav()">
+    <mat-sidenav class="left-sidenav" #leftsidenav mode="over" position="start" [opened]="theme.shell.leftSideNavOpen" (closedStart)="onToggleLeftSideNav()">
       <div class="branding">
         <img [src]="theme.shell.logo" />
         <span> Pocket</span>
@@ -12,8 +12,10 @@
     </mat-sidenav>
 
     <div class="wrapper">
-      <angular-workspace-app-bar [logo]="theme.shell.logo" [loading]="theme.shell.loading" (toggleLeftSideNav)="onToggleLeftSideNav()" (toggleRightSideNav)="onToggleRightSideNav()" >
-      </angular-workspace-app-bar>
+      <div class="toolbar">
+        <angular-workspace-app-bar [logo]="theme.shell.logo" [loading]="theme.shell.loading" (toggleLeftSideNav)="onToggleLeftSideNav()" (toggleRightSideNav)="onToggleRightSideNav()" >
+        </angular-workspace-app-bar>
+      </div>
 
       <div class="content">
         <ng-content></ng-content>
@@ -25,7 +27,7 @@
 
     </div>
 
-    <mat-sidenav class="aw-right-sidenav" #rightsidenav mode="over" position="end" [opened]="theme.shell.rightSideNavOpen" (closedStart)="onToggleRightSideNav()">
+    <mat-sidenav class="right-sidenav" #rightsidenav mode="over" position="end" [opened]="theme.shell.rightSideNavOpen" (closedStart)="onToggleRightSideNav()">
       <p>
         This is the right side
       </p>

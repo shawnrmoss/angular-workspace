@@ -1,10 +1,48 @@
-@import './libs/theme/src/lib/sass/styles-app';
+@import './libs/theme/src/lib/sass/styles-variables';
 
-.aw-topbar {
+.loading-bar {
   width: 100%;
   height: 5px;
+  background: black;
+}
+
+.nav-button {
+  margin: 0 10px 0 0;
+}
+
+.branding {
+  cursor: pointer;
+  padding-top: 4px;
+
+  img {
+    position: relative;
+    top: -2px;
+    width: 48px;
+    height: 48px;
+  }
+}
+
+.title {
+  margin-left: 10px;
+}
+
+.sign-in-button {
+  line-height: 35px;
+  margin-right: 10px;
 }
 
 .spacer {
   flex: 1 1 auto;
+}
+
+@media (max-width: map-get($grid-breakpoints, lg)) {
+  .nav-button {
+    min-width: 0;
+    padding: 0 10px;
+  }
+  .sign-in-button {
+    min-width: 0;
+    padding: 0 10px;
+    margin: 0 5px 0 0;
+  }
 }
