@@ -13,8 +13,3 @@ export const getSelectedTheme = createSelector(
   getSettingsState,
   (state: SettingsState) => state.selectedTheme
 );
-
-export const getThemes = createSelector(
-  getSettingsState,
-  (state: SettingsState) => state.themes
-);

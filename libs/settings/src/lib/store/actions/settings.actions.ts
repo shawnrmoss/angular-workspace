@@ -1,9 +1,11 @@
 // Vendor
 import { Action } from '@ngrx/store';
 
+// From Core and Shared
+import { Theme } from '@angular-workspace/theme';
+
 // From Feature
 import { SettingsState } from '../reducers';
-import { Theme } from '../../models';
 
 export const SETTINGS_KEY = 'SETTINGS';
 

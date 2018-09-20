@@ -5,14 +5,11 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
 
+// From Core and Shared
+import { Theme } from '@angular-workspace/theme';
+
 // From Feature
-import { Theme } from '../../models';
-import {
-  SettingsState,
-  getThemes,
-  getSelectedTheme,
-  ChangeTheme
-} from '../../store';
+import { SettingsState, getSelectedTheme, ChangeTheme } from '../../store';
 
 @Component({
   selector: 'angular-workspace-settings',
@@ -26,7 +23,6 @@ export class SettingsComponent implements OnInit {
   constructor(private settingsStore: Store<SettingsState>) {}
 
   ngOnInit() {
-    this.themes$ = this.settingsStore.select(getThemes);
     this.selectedTheme = this.settingsStore.select(getSelectedTheme);
   }
 

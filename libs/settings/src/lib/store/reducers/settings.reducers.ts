@@ -1,26 +1,14 @@
+// From Core and Shared
+import { Theme } from '@angular-workspace/theme';
+
 // From Feature
 import { SettingsActions, SettingsActionTypes } from '../actions';
-import { Theme } from '../../models';
 
 export const initialState: SettingsState = {
   selectedTheme: <Theme>{
     label: 'Green',
     value: 'DEFAULT-THEME'
-  },
-  themes: [
-    <Theme>{
-      label: 'Green',
-      value: 'DEFAULT-THEME'
-    },
-    <Theme>{
-      label: 'Light',
-      value: 'LIGHT-THEME'
-    },
-    <Theme>{
-      label: 'Dark',
-      value: 'DARK-THEME'
-    }
-  ]
+  }
 };
 
 export function settingsReducer(
@@ -38,5 +26,4 @@ export function settingsReducer(
 
 export interface SettingsState {
   selectedTheme: Theme;
-  themes: Theme[];
 }

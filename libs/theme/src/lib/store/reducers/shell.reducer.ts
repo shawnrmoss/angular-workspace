@@ -1,4 +1,5 @@
 import { ShellActions, ShellActionTypes } from '../actions';
+import { Theme } from '../../models';
 
 export const initialShellState: ShellState = {
   logo: '',
@@ -6,7 +7,21 @@ export const initialShellState: ShellState = {
   navigation: null,
   leftSideNavOpen: false,
   rightSideNavOpen: false,
-  loading: false
+  loading: false,
+  themes: [
+    <Theme>{
+      label: 'Default',
+      value: 'default-theme'
+    },
+    <Theme>{
+      label: 'Light',
+      value: 'light-theme'
+    },
+    <Theme>{
+      label: 'Dark',
+      value: 'dark-theme'
+    }
+  ]
 };
 
 export function shellReducer(
@@ -44,4 +59,5 @@ export interface ShellState {
   leftSideNavOpen: boolean;
   rightSideNavOpen: boolean;
   loading: boolean;
+  themes: Theme[];
 }
