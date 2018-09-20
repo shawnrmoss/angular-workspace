@@ -1,10 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import './libs/theme/src/lib/sass/styles-variables';
 
-// @import '~node_modules/bootstrap/scss/bootstrap-reboot';
-// @import '~node_modules/bootstrap/scss/bootstrap-grid';
-// @import '~node_modules/bootstrap/scss/utilities';
-
 // @import '~node_modules/font-awesome/scss/font-awesome';
 
 @import './libs/theme/src/lib/sass/styles-reset';
@@ -28,14 +24,10 @@
 @mixin custom-components-theme($theme) {
   @include aw-styles-reset-theme($theme);
   @include aw-web-theme($theme);
-  /*
 
-  @include anms-about-component-theme($theme);
-  @include anms-big-input-component-theme($theme);
+  // @include component styles
+  /*
   @include anms-todos-component-theme($theme);
-  @include anms-examples-component-theme($theme);
-  @include anms-parent-component-theme($theme);
-  @include anms-child-component-theme($theme);
   */
 }
 
