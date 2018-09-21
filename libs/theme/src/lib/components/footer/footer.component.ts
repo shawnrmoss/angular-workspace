@@ -6,15 +6,14 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./footer.component.scss']
 })
 export class FooterComponent implements OnInit {
-
   @Input('github') github: any;
   @Input('medium') medium: any;
   @Input('steemit') steemit: any;
   @Input('twitter') twitter: any;
 
-  constructor() { }
+  year = new Date().getFullYear();
 
-  ngOnInit() {
-  }
+  constructor() {}
 
+  ngOnInit() {}
 }

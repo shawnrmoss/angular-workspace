@@ -1,15 +1,17 @@
-.container{
-  height:100px;
-}
-
-.links{
+.links {
   padding: 15px;
 
   a {
-    padding:5px;
+    padding: 5px;
+    text-decoration: none;
+
+    span {
+      text-align: middle;
+      padding-top: 5px;
+    }
   }
 }
 
-img.socialMediaLink{
-  height:40px;
+img.socialMediaLink {
+  height: 30px;
 }
