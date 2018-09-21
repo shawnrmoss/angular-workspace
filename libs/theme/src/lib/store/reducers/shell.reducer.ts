@@ -1,6 +1,16 @@
 import { ShellActions, ShellActionTypes } from '../actions';
 import { Theme } from '../../models';
 
+export interface ShellState {
+  logo: string;
+  socialMediaLogos: string[];
+  navigation: string[];
+  leftSideNavOpen: boolean;
+  rightSideNavOpen: boolean;
+  loading: boolean;
+  themes: Theme[];
+}
+
 export const initialShellState: ShellState = {
   logo: '',
   socialMediaLogos: [],
@@ -50,14 +60,4 @@ export function shellReducer(
     default:
       return state;
   }
-}
-
-export interface ShellState {
-  logo: string;
-  socialMediaLogos: string[];
-  navigation: string[];
-  leftSideNavOpen: boolean;
-  rightSideNavOpen: boolean;
-  loading: boolean;
-  themes: Theme[];
 }

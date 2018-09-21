@@ -2,12 +2,11 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 
 // From Feature
-import { SettingsState } from '../reducers';
+import { SettingsState, initialSettingsState } from '../reducers';
 
 // Selectors
-export const getSettingsState = createFeatureSelector<SettingsState>(
-  'Settings'
-);
+export const getSettingsState = state =>
+  <SettingsState>(state || initialSettingsState);
 
 export const getSelectedTheme = createSelector(
   getSettingsState,

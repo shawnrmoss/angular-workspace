@@ -9,7 +9,7 @@ import { Store } from '@ngrx/store';
 
 // From Features
 import {
-  selectorTheme,
+  getThemeState,
   ThemeState,
   ToggleLeftSidenav,
   ToggleRightSidenav
@@ -26,14 +26,14 @@ export class ShellComponent implements OnInit, OnDestroy {
 
   constructor(private store: Store<any>) {
     store
-      .select(selectorTheme)
+      .select(getThemeState)
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe(theme => {
         this.theme = theme;
       });
   }
 
-  ngOnInit() { }
+  ngOnInit() {}
 
   ngOnDestroy(): void {
     this.unsubscribe$.next();
@@ -55,6 +55,4 @@ export class ShellComponent implements OnInit, OnDestroy {
       })
     );
   }
-
-
 }

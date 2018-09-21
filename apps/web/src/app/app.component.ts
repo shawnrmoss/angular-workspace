@@ -1,7 +1,7 @@
 import { Component, OnInit, HostBinding, OnDestroy } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { OverlayContainer } from '@angular/cdk/overlay';
-import { ActivationEnd, Router, NavigationEnd } from '@angular/router';
+import { ActivationEnd, Router } from '@angular/router';
 
 // Vendors
 import { Store, select } from '@ngrx/store';
@@ -13,11 +13,9 @@ import {
   SetLogo,
   SetNavigation,
   SetSocialMediaLogos,
-  Theme,
-  getThemes,
-  ThemeState
+  Theme
 } from '@angular-workspace/theme';
-import { SettingsState, getSelectedTheme } from '@angular-workspace/settings';
+import { getSelectedTheme } from '@angular-workspace/settings';
 
 // App
 import { environment as env } from '../environments/environment';
@@ -30,8 +28,6 @@ import { environment as env } from '../environments/environment';
 export class AppComponent implements OnInit, OnDestroy {
   private unsubscribe$: Subject<void> = new Subject<void>();
   @HostBinding('class') componentCssClass;
-
-  themes$: Observable<Theme[]>;
 
   logo = require('../assets/logo.png');
   githubLogo = require('../assets/github.png');
@@ -47,8 +43,6 @@ export class AppComponent implements OnInit, OnDestroy {
   constructor(
     public overlayContainer: OverlayContainer,
     private store: Store<any>,
-    private themeStore: Store<ThemeState>,
-    private settingsStore: Store<SettingsState>,
     private router: Router,
     private titleService: Title
   ) {}
@@ -83,15 +77,6 @@ export class AppComponent implements OnInit, OnDestroy {
   private subscribeToSettings() {
     this.store
       .pipe(
-        select(getThemes),
-        takeUntil(this.unsubscribe$)
-      )
-      .subscribe(themes => {
-        console.log(themes);
-      });
-
-    this.store
-      .pipe(
         select(getSelectedTheme),
         takeUntil(this.unsubscribe$)
       )
@@ -102,8 +87,6 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   private setTheme(selectedTheme: Theme) {
-    console.log(selectedTheme);
-    // const effectiveTheme = theme.toLowerCase();
     const effectiveTheme = 'default-theme';
     this.componentCssClass = effectiveTheme;
     const classList = this.overlayContainer.getContainerElement().classList;

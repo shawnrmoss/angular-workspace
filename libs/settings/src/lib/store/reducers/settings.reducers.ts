@@ -4,15 +4,19 @@ import { Theme } from '@angular-workspace/theme';
 // From Feature
 import { SettingsActions, SettingsActionTypes } from '../actions';
 
-export const initialState: SettingsState = {
+export interface SettingsState {
+  selectedTheme: Theme;
+}
+
+export const initialSettingsState: SettingsState = {
   selectedTheme: <Theme>{
-    label: 'Green',
-    value: 'DEFAULT-THEME'
+    label: 'Default',
+    value: 'default-theme'
   }
 };
 
 export function settingsReducer(
-  state: SettingsState = initialState,
+  state: SettingsState = initialSettingsState,
   action: SettingsActions
 ): SettingsState {
   switch (action.type) {
@@ -22,8 +26,4 @@ export function settingsReducer(
     default:
       return state;
   }
-}
-
-export interface SettingsState {
-  selectedTheme: Theme;
 }
