@@ -16,7 +16,7 @@ export enum SettingsActionTypes {
 
 export class ChangeTheme implements Action {
   readonly type = SettingsActionTypes.CHANGE_THEME;
-  constructor(public theme: Theme) {}
+  constructor(public theme: string) {}
 }
 
 export class SettingsPersist implements Action {

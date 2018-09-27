@@ -86,7 +86,7 @@ export class AppComponent implements OnInit, OnDestroy {
       });
   }
 
-  private setTheme(selectedTheme: Theme) {
+  private setTheme(selectedTheme: string) {
     const effectiveTheme = 'default-theme';
     this.componentCssClass = effectiveTheme;
     const classList = this.overlayContainer.getContainerElement().classList;

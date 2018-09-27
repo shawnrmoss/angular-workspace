@@ -3,7 +3,6 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 // From Core and Shared
 import { Theme } from '@angular-workspace/theme';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'angular-workspace-theme-select',
@@ -11,15 +10,15 @@ import { Observable } from 'rxjs';
   styleUrls: ['./theme-select.component.scss']
 })
 export class ThemeSelectComponent implements OnInit {
-  @Input() selectedTheme: Theme;
+  @Input() selectedTheme: string;
   @Input() themes: Theme[];
-  @Output() selectTheme = new EventEmitter<Theme>();
+  @Output() selectTheme = new EventEmitter<string>();
 
   constructor() {}
 
   ngOnInit() {}
 
-  onThemeSelect(themeToSelect: Theme) {
+  onThemeSelect(themeToSelect: string) {
     this.selectTheme.emit(themeToSelect);
   }
 }

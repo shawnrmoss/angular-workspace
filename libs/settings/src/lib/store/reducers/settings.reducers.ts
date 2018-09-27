@@ -5,14 +5,11 @@ import { Theme } from '@angular-workspace/theme';
 import { SettingsActions, SettingsActionTypes } from '../actions';
 
 export interface SettingsState {
-  selectedTheme: Theme;
+  selectedTheme: string;
 }
 
 export const initialSettingsState: SettingsState = {
-  selectedTheme: <Theme>{
-    label: 'Default',
-    value: 'default-theme'
-  }
+  selectedTheme: 'default-theme'
 };
 
 export function settingsReducer(

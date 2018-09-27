@@ -18,20 +18,20 @@ import { SettingsState, getSelectedTheme, ChangeTheme } from '../../store';
 })
 export class SettingsComponent implements OnInit {
   themes$: Observable<Theme[]>;
-  selectedTheme$: Observable<Theme>;
+  selectedTheme$: Observable<string>;
 
   constructor(private settingsStore: Store<SettingsState>) {}
 
   ngOnInit() {
     this.selectedTheme$ = this.settingsStore.select(getSelectedTheme);
-    this.themes$ = this.settingsStore.select(getThemes);
-
-    this.settingsStore.select(getThemes).subscribe(themes => {
-      console.log(themes);
+    this.settingsStore.select(getSelectedTheme).subscribe(theme => {
+      console.log(theme);
     });
+    this.themes$ = this.settingsStore.select(getThemes);
   }
 
-  themeSelect(themeToSelect: Theme) {
+  themeSelect(themeToSelect: string) {
+    //console.log(themeToSelect);
     this.settingsStore.dispatch(new ChangeTheme(themeToSelect));
   }
 }
