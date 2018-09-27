@@ -9,7 +9,7 @@ export interface ThemeState {
 }
 
 export const initialThemeState: ThemeState = {
-  shell: null
+  shell: initialShellState
 };
 
 export const themeReducer: ActionReducerMap<any> = {

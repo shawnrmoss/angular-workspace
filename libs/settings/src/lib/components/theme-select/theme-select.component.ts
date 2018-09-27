@@ -3,6 +3,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 // From Core and Shared
 import { Theme } from '@angular-workspace/theme';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'angular-workspace-theme-select',

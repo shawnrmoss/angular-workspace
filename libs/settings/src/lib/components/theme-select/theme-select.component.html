@@ -1,10 +1,10 @@
-<div class="col-md-6 icon-form-field">
-  <mat-icon color="accent">color_lens</mat-icon>
-  <mat-form-field>
-    <mat-select placeholder="Color theme" name="theme" [ngModel]="selectedTheme" (selectionChange)="onThemeSelect($event)">
-      <mat-option *ngFor="let t of themes" [value]="t.value">
-        {{t.label}}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
-</div>
+
+<mat-icon color="accent">color_lens</mat-icon>
+<mat-form-field>
+  <mat-select placeholder="Color theme" name="theme" [ngModel]="selectedTheme" (selectionChange)="onThemeSelect($event)">
+    <mat-option *ngFor="let t of themes" [value]="t.value">
+      {{t.label}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
