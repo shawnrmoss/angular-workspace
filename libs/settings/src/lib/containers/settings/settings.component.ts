@@ -10,6 +10,7 @@ import { Theme, getThemes } from '@angular-workspace/theme';
 
 // From Feature
 import { SettingsState, getSelectedTheme, ChangeTheme } from '../../store';
+import { Settings } from '../../models';
 
 @Component({
   selector: 'angular-workspace-settings',
@@ -17,7 +18,9 @@ import { SettingsState, getSelectedTheme, ChangeTheme } from '../../store';
   styleUrls: ['./settings.component.scss']
 })
 export class SettingsComponent implements OnInit {
+  settings$: Observable<Settings>;
   themes$: Observable<Theme[]>;
+
   selectedTheme$: Observable<string>;
 
   constructor(private settingsStore: Store<SettingsState>) {}
@@ -30,8 +33,8 @@ export class SettingsComponent implements OnInit {
     this.themes$ = this.settingsStore.select(getThemes);
   }
 
-  themeSelect(themeToSelect: string) {
-    //console.log(themeToSelect);
-    this.settingsStore.dispatch(new ChangeTheme(themeToSelect));
+  onThemeSelect(themeToSelect: string) {
+    console.log(themeToSelect);
+    //his.settingsStore.dispatch(new ChangeTheme(themeToSelect));
   }
 }

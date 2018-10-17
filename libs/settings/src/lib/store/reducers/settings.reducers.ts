@@ -3,13 +3,16 @@ import { Theme } from '@angular-workspace/theme';
 
 // From Feature
 import { SettingsActions, SettingsActionTypes } from '../actions';
+import { Settings } from '../../models';
 
 export interface SettingsState {
   selectedTheme: string;
+  settings: Settings;
 }
 
 export const initialSettingsState: SettingsState = {
-  selectedTheme: 'default-theme'
+  selectedTheme: 'default-theme',
+  settings: null
 };
 
 export function settingsReducer(

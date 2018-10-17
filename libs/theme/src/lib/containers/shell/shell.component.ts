@@ -5,8 +5,6 @@ import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { Store } from '@ngrx/store';
 
-// Core and Shared
-
 // From Features
 import {
   getThemeState,

@@ -8,7 +8,12 @@
       "sourceRoot": "apps/web/src",
       "projectType": "application",
       "prefix": "angular-workspace",
-      "schematics": {},
+      "schematics": {
+        "@schematics/angular:component": {
+          "changeDetection": "OnPush",
+          "styleext": "scss"
+        }
+      },
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -113,7 +118,12 @@
       "sourceRoot": "apps/admin/src",
       "projectType": "application",
       "prefix": "angular-workspace",
-      "schematics": {},
+      "schematics": {
+        "@schematics/angular:component": {
+          "changeDetection": "OnPush",
+          "styleext": "scss"
+        }
+      },
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -218,6 +228,12 @@
       "sourceRoot": "libs/core/src",
       "projectType": "library",
       "prefix": "angular-workspace",
+      "schematics": {
+        "@schematics/angular:component": {
+          "changeDetection": "OnPush",
+          "styleext": "scss"
+        }
+      },
       "architect": {
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
@@ -244,6 +260,12 @@
       "sourceRoot": "libs/shared/src",
       "projectType": "library",
       "prefix": "angular-workspace",
+      "schematics": {
+        "@schematics/angular:component": {
+          "changeDetection": "OnPush",
+          "styleext": "scss"
+        }
+      },
       "architect": {
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
@@ -270,6 +292,12 @@
       "sourceRoot": "libs/theme/src",
       "projectType": "library",
       "prefix": "angular-workspace",
+      "schematics": {
+        "@schematics/angular:component": {
+          "changeDetection": "OnPush",
+          "styleext": "scss"
+        }
+      },
       "architect": {
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
@@ -296,6 +324,12 @@
       "sourceRoot": "libs/settings/src",
       "projectType": "library",
       "prefix": "angular-workspace",
+      "schematics": {
+        "@schematics/angular:component": {
+          "changeDetection": "OnPush",
+          "styleext": "scss"
+        }
+      },
       "architect": {
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
@@ -322,6 +356,12 @@
       "sourceRoot": "libs/feed/src",
       "projectType": "library",
       "prefix": "angular-workspace",
+      "schematics": {
+        "@schematics/angular:component": {
+          "changeDetection": "OnPush",
+          "styleext": "scss"
+        }
+      },
       "architect": {
         "test": {
           "builder": "@angular-devkit/build-angular:karma",

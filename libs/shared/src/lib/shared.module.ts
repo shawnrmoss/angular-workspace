@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 // Material Design
@@ -25,7 +25,6 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatExpansionModule } from '@angular/material/expansion';
-
 // Buttons, Indicators, and icons
 import { MatButtonModule } from '@angular/material/button';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
@@ -43,6 +42,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     // Angular
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     FlexLayoutModule,
 
     // Material
@@ -83,6 +83,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     // Angular
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     FlexLayoutModule,
 
     // Material
