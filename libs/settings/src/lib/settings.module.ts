@@ -11,7 +11,7 @@ import { SharedModule } from '@angular-workspace/shared';
 import { ThemeModule } from '@angular-workspace/theme';
 
 // From Feature
-import { ThemeSelectComponent, SettingsFormComponent } from './components';
+import { SettingsFormComponent } from './components';
 import { SettingsComponent } from './containers';
 import { settingsReducer, SettingsEffects } from './store';
 import { SettingsRoutingModule } from './settings.routing';
@@ -28,6 +28,6 @@ import { SettingsRoutingModule } from './settings.routing';
     EffectsModule.forFeature([SettingsEffects]),
     SettingsRoutingModule
   ],
-  declarations: [SettingsComponent, ThemeSelectComponent, SettingsFormComponent]
+  declarations: [SettingsComponent, SettingsFormComponent]
 })
 export class SettingsModule {}
