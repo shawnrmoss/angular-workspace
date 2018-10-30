@@ -7,23 +7,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NxModule } from '@nrwl/nx';
 import { StoreModule, MetaReducer } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
-import {
-  StoreRouterConnectingModule,
-  RouterStateSerializer
-} from '@ngrx/router-store';
+import { StoreRouterConnectingModule, RouterStateSerializer } from '@ngrx/router-store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { storeFreeze } from 'ngrx-store-freeze';
 
 // Root & Shared Modules
-import {
-  CoreModule,
-  coreReducers,
-  coreEffects,
-  CustomSerializer,
-  debug,
-  initStateFromLocalStorage,
-  LocalStorageService
-} from '@angular-workspace/core';
+import { CustomSerializer } from '@angular-workspace/common';
+import { CoreModule } from '@angular-workspace/core';
 import { SharedModule } from '@angular-workspace/shared';
 import { ThemeModule } from '@angular-workspace/theme';
 import { SettingsModule } from '@angular-workspace/settings';
@@ -33,14 +22,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.routing';
 
 import { environment } from '../environments/environment';
-
-export const metaReducers: MetaReducer<any>[] = !environment.production
-  ? [storeFreeze, initStateFromLocalStorage]
-  : [initStateFromLocalStorage];
-
-if (!environment.production) {
-  metaReducers.unshift(debug);
-}
+import { effects, reducers } from './store';
 
 @NgModule({
   declarations: [AppComponent],
@@ -51,10 +33,8 @@ if (!environment.production) {
 
     // Nx
     NxModule.forRoot(),
-    StoreModule.forRoot(coreReducers, {
-      metaReducers
-    }),
-    EffectsModule.forRoot(coreEffects),
+    StoreModule.forRoot(reducers),
+    EffectsModule.forRoot(effects),
     StoreRouterConnectingModule,
     environment ? StoreDevtoolsModule.instrument() : [],
 
@@ -67,10 +47,7 @@ if (!environment.production) {
     // App
     AppRoutingModule
   ],
-  providers: [
-    { provide: RouterStateSerializer, useClass: CustomSerializer },
-    LocalStorageService
-  ],
+  providers: [{ provide: RouterStateSerializer, useClass: CustomSerializer }],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

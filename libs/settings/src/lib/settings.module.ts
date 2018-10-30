@@ -13,7 +13,7 @@ import { ThemeModule } from '@angular-workspace/theme';
 // From Feature
 import { SettingsFormComponent } from './components';
 import { SettingsComponent } from './containers';
-import { settingsReducer, SettingsEffects } from './store';
+import { settingsReducer } from './store';
 import { SettingsRoutingModule } from './settings.routing';
 
 @NgModule({
@@ -25,7 +25,7 @@ import { SettingsRoutingModule } from './settings.routing';
     ThemeModule,
     // Vendor
     StoreModule.forFeature('settings', settingsReducer),
-    EffectsModule.forFeature([SettingsEffects]),
+    EffectsModule.forFeature([]),
     SettingsRoutingModule
   ],
   declarations: [SettingsComponent, SettingsFormComponent]

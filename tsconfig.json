@@ -30,6 +30,9 @@
       ],
       "@angular-workspace/feed": [
         "libs/feed/src/index.ts"
+      ],
+      "@angular-workspace/common": [
+        "libs/common/src/index.ts"
       ]
     }
   },

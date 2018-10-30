@@ -9,7 +9,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { SharedModule } from '@angular-workspace/shared';
 
 // From Feature
-import { themeEffects, themeReducer } from './store';
+import { themeReducer } from './store';
 import { AppBarComponent, FooterComponent } from './components';
 import { ShellComponent } from './containers';
 
@@ -23,7 +23,7 @@ import { ShellComponent } from './containers';
 
     // Vendor
     StoreModule.forFeature('theme', themeReducer),
-    EffectsModule.forFeature(themeEffects)
+    EffectsModule.forFeature([])
   ],
   declarations: [
     // Containers
