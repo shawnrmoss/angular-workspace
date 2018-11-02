@@ -5,7 +5,7 @@ import { ShellState, ThemeState } from '../reducers';
 // Selectors
 export const getThemeState = createFeatureSelector<ThemeState>('theme');
 
-export const getShellState = createFeatureSelector<ShellState>('shell');
+export const getShellState = createSelector(getThemeState, (state: ThemeState) => state.shell);
 
 export const getSelectedTheme = createSelector(getShellState, (state: ShellState) => state.selectedTheme);
 
