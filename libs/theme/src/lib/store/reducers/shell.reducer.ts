@@ -9,6 +9,7 @@ export interface ShellState {
   rightSideNavOpen: boolean;
   loading: boolean;
   themes: Theme[];
+  selectedTheme: string;
 }
 
 export const initialShellState: ShellState = {
@@ -31,31 +32,60 @@ export const initialShellState: ShellState = {
       label: 'Dark',
       value: 'dark-theme'
     }
-  ]
+  ],
+  selectedTheme: 'default-theme'
 };
 
-export function shellReducer(
-  state: ShellState = initialShellState,
-  action: ShellActions
-): ShellState {
+export function reducer(state: ShellState = initialShellState, action: ShellActions): ShellState {
   switch (action.type) {
-    case ShellActionTypes.SET_LOGO:
-      return { ...state, logo: action.payload.logo };
+    case ShellActionTypes.SetLogo: {
+      return {
+        ...state,
+        logo: action.payload.logo
+      };
+    }
 
-    case ShellActionTypes.SET_SOCIAL_MEDIA_LOGOS:
-      return { ...state, socialMediaLogos: action.payload.logos };
+    case ShellActionTypes.SetSocialMediaLogos: {
+      return {
+        ...state,
+        socialMediaLogos: action.payload.logos
+      };
+    }
 
-    case ShellActionTypes.SET_NAVIGATION:
-      return { ...state, navigation: action.payload.navigation };
+    case ShellActionTypes.SetNavigation: {
+      return {
+        ...state,
+        navigation: action.payload.navigation
+      };
+    }
 
-    case ShellActionTypes.TOGGLE_LEFT_SIDENAV:
-      return { ...state, leftSideNavOpen: action.payload.toggle };
+    case ShellActionTypes.ToggleLeftSidenav: {
+      return {
+        ...state,
+        leftSideNavOpen: action.payload.toggle
+      };
+    }
 
-    case ShellActionTypes.TOGGLE_RIGHT_SIDENAV:
-      return { ...state, rightSideNavOpen: action.payload.toggle };
+    case ShellActionTypes.ToggleRightSidenav: {
+      return {
+        ...state,
+        rightSideNavOpen: action.payload.toggle
+      };
+    }
 
-    case ShellActionTypes.TOGGLE_LOADING:
-      return { ...state, loading: action.payload.toggle };
+    case ShellActionTypes.ToggleLoading: {
+      return {
+        ...state,
+        loading: action.payload
+      };
+    }
+
+    case ShellActionTypes.SetTheme: {
+      return {
+        ...state,
+        selectedTheme: action.payload
+      };
+    }
 
     default:
       return state;

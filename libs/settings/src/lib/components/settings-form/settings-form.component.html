@@ -1,10 +1,10 @@
 <form [formGroup]="form" >
-  <mat-form-field [floatLabel]="auto">
+  <mat-form-field >
     <mat-icon color="accent">color_lens</mat-icon>
     <mat-label>Theme</mat-label>
     <mat-select placeholder="Theme" formControlName="theme" (selectionChange)="onThemeSelect($event)" >
-      <mat-option *ngFor="let t of themes" [value]="t.value">
-        {{t.label}}
+      <mat-option *ngFor="let theme of themes" [value]="theme.value">
+        {{theme.label}}
       </mat-option>
     </mat-select>
   </mat-form-field>

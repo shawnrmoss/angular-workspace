@@ -1,13 +1,20 @@
-import { createSelector } from '@ngrx/store';
+import { createFeatureSelector, createSelector } from '@ngrx/store';
 
-// From Feature
-import { ThemeState, initialThemeState } from '../reducers';
+import { ShellState, ThemeState } from '../reducers';
 
 // Selectors
-export const getThemeState = state =>
-  <ThemeState>(state.theme || initialThemeState);
+export const getThemeState = createFeatureSelector<ThemeState>('theme');
 
-export const getThemes = createSelector(
-  getThemeState,
-  (state: ThemeState) => state.shell.themes
-);
+export const getShellState = createFeatureSelector<ShellState>('shell');
+
+export const getSelectedTheme = createSelector(getShellState, (state: ShellState) => state.selectedTheme);
+
+export const getThemes = createSelector(getShellState, (state: ShellState) => state.themes);
+
+export const getLoading = createSelector(getShellState, (state: ShellState) => state.loading);
+
+export const getLogo = createSelector(getShellState, (state: ShellState) => state.logo);
+
+export const getSocialMediaLogos = createSelector(getShellState, (state: ShellState) => state.socialMediaLogos);
+
+export const getNavigation = createSelector(getShellState, (state: ShellState) => state.navigation);

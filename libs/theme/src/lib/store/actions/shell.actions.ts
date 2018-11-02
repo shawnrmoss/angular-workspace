@@ -3,42 +3,48 @@ import { Action } from '@ngrx/store';
 export const SHELL_KEY = 'SHELL';
 
 export enum ShellActionTypes {
-  SET_LOGO = '[SHELL] Set logo',
-  SET_SOCIAL_MEDIA_LOGOS = '[SHELL] Set social media logos',
-  SET_NAVIGATION = '[SHELL] Set navigation',
-  TOGGLE_LEFT_SIDENAV = '[SHELL] Toggle left sidenav',
-  TOGGLE_RIGHT_SIDENAV = '[SHELL] Toggle right sidenav',
-  TOGGLE_LOADING = '[SHELL] Toggle Loading'
+  SetLogo = '[SHELL] Set logo',
+  SetSocialMediaLogos = '[SHELL] Set social media logos',
+  SetNavigation = '[SHELL] Set navigation',
+  ToggleLeftSidenav = '[SHELL] Toggle left sidenav',
+  ToggleRightSidenav = '[SHELL] Toggle right sidenav',
+  ToggleLoading = '[SHELL] Toggle Loading',
+  SetTheme = '[SHELL] Set Theme'
 }
 
 export class ToggleLeftSidenav implements Action {
-  readonly type = ShellActionTypes.TOGGLE_LEFT_SIDENAV;
-  constructor(public payload: { toggle: boolean }) { }
+  readonly type = ShellActionTypes.ToggleLeftSidenav;
+  constructor(public payload: { toggle: boolean }) {}
 }
 
 export class ToggleRightSidenav implements Action {
-  readonly type = ShellActionTypes.TOGGLE_RIGHT_SIDENAV;
-  constructor(public payload: { toggle: boolean }) { }
+  readonly type = ShellActionTypes.ToggleRightSidenav;
+  constructor(public payload: { toggle: boolean }) {}
 }
 
 export class ToggleLoading implements Action {
-  readonly type = ShellActionTypes.TOGGLE_LOADING;
-  constructor(public payload: { toggle: boolean }) { }
+  readonly type = ShellActionTypes.ToggleLoading;
+  constructor(public payload: boolean) {}
 }
 
 export class SetLogo implements Action {
-  readonly type = ShellActionTypes.SET_LOGO;
-  constructor(public payload: { logo: string }) { }
+  readonly type = ShellActionTypes.SetLogo;
+  constructor(public payload: { logo: string }) {}
 }
 
 export class SetSocialMediaLogos implements Action {
-  readonly type = ShellActionTypes.SET_SOCIAL_MEDIA_LOGOS;
-  constructor(public payload: { logos: any[] }) { }
+  readonly type = ShellActionTypes.SetSocialMediaLogos;
+  constructor(public payload: { logos: any[] }) {}
 }
 
 export class SetNavigation implements Action {
-  readonly type = ShellActionTypes.SET_NAVIGATION;
-  constructor(public payload: { navigation: any }) { }
+  readonly type = ShellActionTypes.SetNavigation;
+  constructor(public payload: { navigation: any }) {}
+}
+
+export class SetTheme implements Action {
+  readonly type = ShellActionTypes.SetTheme;
+  constructor(public payload: string) {}
 }
 
 export type ShellActions =
@@ -47,4 +53,5 @@ export type ShellActions =
   | SetNavigation
   | ToggleLeftSidenav
   | ToggleRightSidenav
-  | ToggleLoading;
+  | ToggleLoading
+  | SetTheme;

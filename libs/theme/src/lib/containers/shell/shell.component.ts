@@ -6,12 +6,7 @@ import { takeUntil } from 'rxjs/operators';
 import { Store } from '@ngrx/store';
 
 // From Features
-import {
-  getThemeState,
-  ThemeState,
-  ToggleLeftSidenav,
-  ToggleRightSidenav
-} from '../../store';
+import { getThemeState, ThemeState, ToggleLeftSidenav, ToggleRightSidenav } from '../../store';
 
 @Component({
   selector: 'angular-workspace-shell',

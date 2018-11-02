@@ -1,7 +1,7 @@
-import { ActionReducerMap, createFeatureSelector } from '@ngrx/store';
+import { ActionReducerMap } from '@ngrx/store';
 
 // From Feature
-import { shellReducer, ShellState, initialShellState } from './shell.reducer';
+import { reducer, ShellState, initialShellState } from './shell.reducer';
 export * from './shell.reducer';
 
 export interface ThemeState {
@@ -12,6 +12,6 @@ export const initialThemeState: ThemeState = {
   shell: initialShellState
 };
 
-export const themeReducer: ActionReducerMap<any> = {
-  shell: shellReducer
+export const themeReducer: ActionReducerMap<ThemeState> = {
+  shell: reducer
 };

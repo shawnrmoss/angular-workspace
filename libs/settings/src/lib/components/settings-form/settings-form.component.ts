@@ -23,19 +23,17 @@ import { Theme } from '@angular-workspace/theme';
   styleUrls: ['./settings-form.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class SettingsFormComponent extends AwForm implements OnInit, OnChanges {
+export class SettingsFormComponent implements OnInit, OnChanges {
   @Input() settings: Settings;
   @Input() themes: Theme[];
 
   @Output() selectTheme = new EventEmitter<string>();
 
   form = this.fb.group({
-    theme: ['', Validators.required]
+    selectedTheme: ['', Validators.required]
   });
 
-  constructor(private fb: FormBuilder) {
-    super();
-  }
+  constructor(private fb: FormBuilder) {}
 
   ngOnInit() {}
 
