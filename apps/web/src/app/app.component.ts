@@ -9,13 +9,7 @@ import { Subject, Observable } from 'rxjs';
 import { takeUntil, filter } from 'rxjs/operators';
 
 // Features
-import {
-  SetLogo,
-  SetNavigation,
-  SetSocialMediaLogos,
-  Theme
-} from '@angular-workspace/theme';
-import { getSelectedTheme } from '@angular-workspace/settings';
+import { SetLogo, SetNavigation, SetSocialMediaLogos, getSelectedTheme } from '@angular-workspace/theme';
 
 // App
 import { environment as env } from '../environments/environment';
@@ -35,10 +29,7 @@ export class AppComponent implements OnInit, OnDestroy {
   steemitLogo = require('../assets/steemit.png');
   twitterLogo = require('../assets/twitter.png');
 
-  navigation = [
-    { link: '/home', label: 'Home' },
-    { link: '/settings', label: 'Settings' }
-  ];
+  navigation = [{ link: '/home', label: 'Home' }, { link: '/settings', label: 'Settings' }];
 
   constructor(
     public overlayContainer: OverlayContainer,
@@ -58,12 +49,7 @@ export class AppComponent implements OnInit, OnDestroy {
     this.store.dispatch(new SetLogo({ logo: this.logo }));
     this.store.dispatch(
       new SetSocialMediaLogos({
-        logos: [
-          this.githubLogo,
-          this.mediumLogo,
-          this.steemitLogo,
-          this.twitterLogo
-        ]
+        logos: [this.githubLogo, this.mediumLogo, this.steemitLogo, this.twitterLogo]
       })
     );
     this.store.dispatch(new SetNavigation({ navigation: this.navigation }));
@@ -75,28 +61,21 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   private subscribeToSettings() {
-    this.store
-      .pipe(
-        select(getSelectedTheme),
-        takeUntil(this.unsubscribe$)
-      )
-      .pipe(takeUntil(this.unsubscribe$))
-      .subscribe(selectedTheme => {
-        this.setTheme(selectedTheme);
-      });
+    this.store.select(getSelectedTheme).subscribe(theme => {
+      this.setTheme(theme);
+    });
   }
 
   private setTheme(selectedTheme: string) {
-    const effectiveTheme = 'default-theme';
-    this.componentCssClass = effectiveTheme;
+    console.log(selectedTheme);
+    //const effectiveTheme = 'default-theme';
+    this.componentCssClass = selectedTheme;
     const classList = this.overlayContainer.getContainerElement().classList;
-    const toRemove = Array.from(classList).filter((item: string) =>
-      item.includes('-theme')
-    );
+    const toRemove = Array.from(classList).filter((item: string) => item.includes('-theme'));
     if (toRemove.length) {
       classList.remove(...toRemove);
     }
-    classList.add(effectiveTheme);
+    classList.add(selectedTheme);
   }
 
   private subscribeToRouterEvents() {
@@ -111,9 +90,7 @@ export class AppComponent implements OnInit, OnDestroy {
           lastChild = lastChild.children[0];
         }
         const { title } = lastChild.data;
-        this.titleService.setTitle(
-          title ? `${title} - ${env.appName}` : env.appName
-        );
+        this.titleService.setTitle(title ? `${title} - ${env.appName}` : env.appName);
       });
   }
 }

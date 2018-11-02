@@ -1,11 +1,11 @@
 <mat-sidenav-container>
-    <mat-sidenav class="left-sidenav" #leftsidenav mode="over" position="start" [opened]="theme.shell.leftSideNavOpen" (closedStart)="onToggleLeftSideNav()">
+    <mat-sidenav class="left-sidenav" #leftsidenav mode="over" position="start" [opened]="leftSideNavOpen$ | async" (closedStart)="onToggleLeftSideNav()">
       <div class="branding">
-        <img [src]="theme.shell.logo" />
+        <img [src]="logo$ | async" />
         <span> Pocket</span>
       </div>
       <mat-nav-list class="aw-left-sidenav">
-        <a mat-list-item *ngFor="let item of theme.shell.navigation" (click)="onToggleLeftSideNav()" [routerLink]="[item.link]" routerLinkActive="active">
+        <a mat-list-item *ngFor="let item of navigation$ | async" (click)="onToggleLeftSideNav()" [routerLink]="[item.link]" routerLinkActive="active">
           {{item.label}}
         </a>
       </mat-nav-list>
@@ -13,7 +13,7 @@
 
     <div class="wrapper">
       <div class="toolbar">
-        <angular-workspace-app-bar [logo]="theme.shell.logo" [loading]="theme.shell.loading" (toggleLeftSideNav)="onToggleLeftSideNav()" (toggleRightSideNav)="onToggleRightSideNav()" >
+        <angular-workspace-app-bar [logo]="logo$ | async" [loading]="loading$ | async" (toggleLeftSideNav)="onToggleLeftSideNav()" (toggleRightSideNav)="onToggleRightSideNav()" >
         </angular-workspace-app-bar>
       </div>
 
@@ -22,12 +22,13 @@
       </div>
 
       <div class="footer" >
-        <angular-workspace-footer [github]="theme.shell.socialMediaLogos[0]" [medium]="theme.shell.socialMediaLogos[1]" [steemit]="theme.shell.socialMediaLogos[2]" [twitter]="theme.shell.socialMediaLogos[3]" ></angular-workspace-footer>
+        <!-- [github]="theme.shell.socialMediaLogos[0]" [medium]="theme.shell.socialMediaLogos[1]" [steemit]="theme.shell.socialMediaLogos[2]" [twitter]="theme.shell.socialMediaLogos[3]" -->
+        <angular-workspace-footer ></angular-workspace-footer>
       </div>
 
     </div>
 
-    <mat-sidenav class="right-sidenav" #rightsidenav mode="over" position="end" [opened]="theme.shell.rightSideNavOpen" (closedStart)="onToggleRightSideNav()">
+    <mat-sidenav class="right-sidenav" #rightsidenav mode="over" position="end" [opened]="rightSideNavOpen$ | async" (closedStart)="onToggleRightSideNav()">
       <p>
         This is the right side
       </p>

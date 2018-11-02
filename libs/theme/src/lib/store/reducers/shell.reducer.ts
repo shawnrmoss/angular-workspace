@@ -15,7 +15,7 @@ export interface ShellState {
 export const initialShellState: ShellState = {
   logo: '',
   socialMediaLogos: [],
-  navigation: null,
+  navigation: [],
   leftSideNavOpen: false,
   rightSideNavOpen: false,
   loading: false,

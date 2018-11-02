@@ -18,3 +18,7 @@ export const getLogo = createSelector(getShellState, (state: ShellState) => stat
 export const getSocialMediaLogos = createSelector(getShellState, (state: ShellState) => state.socialMediaLogos);
 
 export const getNavigation = createSelector(getShellState, (state: ShellState) => state.navigation);
+
+export const getLeftSideNavOpen = createSelector(getShellState, (state: ShellState) => state.leftSideNavOpen);
+
+export const getRightSideNavOpen = createSelector(getShellState, (state: ShellState) => state.rightSideNavOpen);
