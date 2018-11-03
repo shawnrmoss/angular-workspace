@@ -3,7 +3,6 @@ import { Theme } from '../../models';
 
 export interface ShellState {
   logo: string;
-  socialMediaLogos: string[];
   navigation: string[];
   leftSideNavOpen: boolean;
   rightSideNavOpen: boolean;
@@ -14,7 +13,6 @@ export interface ShellState {
 
 export const initialShellState: ShellState = {
   logo: '',
-  socialMediaLogos: [],
   navigation: [],
   leftSideNavOpen: false,
   rightSideNavOpen: false,
@@ -42,13 +40,6 @@ export function reducer(state: ShellState = initialShellState, action: ShellActi
       return {
         ...state,
         logo: action.payload.logo
-      };
-    }
-
-    case ShellActionTypes.SetSocialMediaLogos: {
-      return {
-        ...state,
-        socialMediaLogos: action.payload.logos
       };
     }
 

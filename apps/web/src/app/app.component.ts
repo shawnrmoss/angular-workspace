@@ -9,7 +9,7 @@ import { Subject, Observable } from 'rxjs';
 import { takeUntil, filter } from 'rxjs/operators';
 
 // Features
-import { SetLogo, SetNavigation, SetSocialMediaLogos, getSelectedTheme } from '@angular-workspace/theme';
+import { SetLogo, SetNavigation, getSelectedTheme } from '@angular-workspace/theme';
 
 // App
 import { environment as env } from '../environments/environment';
@@ -24,11 +24,6 @@ export class AppComponent implements OnInit, OnDestroy {
   @HostBinding('class') componentCssClass;
 
   logo = require('../assets/logo.png');
-  githubLogo = require('../assets/github.png');
-  mediumLogo = require('../assets/medium.png');
-  steemitLogo = require('../assets/steemit.png');
-  twitterLogo = require('../assets/twitter.png');
-
   navigation = [{ link: '/home', label: 'Home' }, { link: '/settings', label: 'Settings' }];
 
   constructor(
@@ -47,11 +42,6 @@ export class AppComponent implements OnInit, OnDestroy {
 
     // TODO SM - Put these into a guard that protects the top level route.
     this.store.dispatch(new SetLogo({ logo: this.logo }));
-    this.store.dispatch(
-      new SetSocialMediaLogos({
-        logos: [this.githubLogo, this.mediumLogo, this.steemitLogo, this.twitterLogo]
-      })
-    );
     this.store.dispatch(new SetNavigation({ navigation: this.navigation }));
   }
 
@@ -62,13 +52,13 @@ export class AppComponent implements OnInit, OnDestroy {
 
   private subscribeToSettings() {
     this.store.select(getSelectedTheme).subscribe(theme => {
+      console.log(theme);
       this.setTheme(theme);
     });
   }
 
-  private setTheme(selectedTheme: string) {
-    console.log(selectedTheme);
-    //const effectiveTheme = 'default-theme';
+  private setTheme(selectedTheme2: string) {
+    const selectedTheme = 'default-theme';
     this.componentCssClass = selectedTheme;
     const classList = this.overlayContainer.getContainerElement().classList;
     const toRemove = Array.from(classList).filter((item: string) => item.includes('-theme'));

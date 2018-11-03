@@ -4,7 +4,6 @@ export const SHELL_KEY = 'SHELL';
 
 export enum ShellActionTypes {
   SetLogo = '[SHELL] Set logo',
-  SetSocialMediaLogos = '[SHELL] Set social media logos',
   SetNavigation = '[SHELL] Set navigation',
   ToggleLeftSidenav = '[SHELL] Toggle left sidenav',
   ToggleRightSidenav = '[SHELL] Toggle right sidenav',
@@ -32,11 +31,6 @@ export class SetLogo implements Action {
   constructor(public payload: { logo: string }) {}
 }
 
-export class SetSocialMediaLogos implements Action {
-  readonly type = ShellActionTypes.SetSocialMediaLogos;
-  constructor(public payload: { logos: any[] }) {}
-}
-
 export class SetNavigation implements Action {
   readonly type = ShellActionTypes.SetNavigation;
   constructor(public payload: { navigation: any }) {}
@@ -47,11 +41,4 @@ export class SetTheme implements Action {
   constructor(public payload: string) {}
 }
 
-export type ShellActions =
-  | SetLogo
-  | SetSocialMediaLogos
-  | SetNavigation
-  | ToggleLeftSidenav
-  | ToggleRightSidenav
-  | ToggleLoading
-  | SetTheme;
+export type ShellActions = SetLogo | SetNavigation | ToggleLeftSidenav | ToggleRightSidenav | ToggleLoading | SetTheme;
