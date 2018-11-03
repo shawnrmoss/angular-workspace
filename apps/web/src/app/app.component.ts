@@ -52,7 +52,6 @@ export class AppComponent implements OnInit, OnDestroy {
 
   private subscribeToSettings() {
     this.store.select(getSelectedTheme).subscribe(theme => {
-      console.log(theme);
       this.setTheme(theme);
     });
   }

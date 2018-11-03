@@ -10,11 +10,7 @@ import {
 } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 
-// Core && Shared
-import { AwForm } from '@angular-workspace/shared';
-
 // From Feature
-import { Settings } from '../../models';
 import { Theme } from '@angular-workspace/theme';
 
 @Component({
