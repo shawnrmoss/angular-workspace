@@ -5,24 +5,12 @@ import { Theme } from '@angular-workspace/theme';
 import { SettingsActions, SettingsActionTypes } from '../actions';
 import { Settings } from '../../models';
 
-export interface SettingsState {
-  selectedTheme: string;
-  settings: Settings;
-}
+export interface SettingsState {}
 
-export const initialSettingsState: SettingsState = {
-  selectedTheme: 'default-theme',
-  settings: null
-};
+export const initialSettingsState: SettingsState = {};
 
-export function settingsReducer(
-  state: SettingsState = initialSettingsState,
-  action: SettingsActions
-): SettingsState {
+export function settingsReducer(state: SettingsState = initialSettingsState, action: SettingsActions): SettingsState {
   switch (action.type) {
-    case SettingsActionTypes.CHANGE_THEME:
-      return { ...state, selectedTheme: action.theme };
-
     default:
       return state;
   }

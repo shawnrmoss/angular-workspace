@@ -5,10 +5,4 @@ import { createFeatureSelector, createSelector } from '@ngrx/store';
 import { SettingsState, initialSettingsState } from '../reducers';
 
 // Selectors
-export const getSettingsState = state =>
-  <SettingsState>(state || initialSettingsState);
-
-export const getSelectedTheme = createSelector(
-  getSettingsState,
-  (state: SettingsState) => state.selectedTheme
-);
+export const getSettingsState = state => <SettingsState>(state || initialSettingsState);

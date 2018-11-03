@@ -6,10 +6,9 @@ import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
 
 // From Core and Shared
-import { Theme, getThemes } from '@angular-workspace/theme';
+import { Theme, getThemes, ThemeState } from '@angular-workspace/theme';
 
 // From Feature
-import { SettingsState, getSelectedTheme, ChangeTheme } from '../../store';
 import { Settings } from '../../models';
 
 @Component({
@@ -23,14 +22,10 @@ export class SettingsComponent implements OnInit {
 
   selectedTheme$: Observable<string>;
 
-  constructor(private settingsStore: Store<SettingsState>) {}
+  constructor(private store: Store<ThemeState>) {}
 
   ngOnInit() {
-    this.selectedTheme$ = this.settingsStore.select(getSelectedTheme);
-    this.settingsStore.select(getSelectedTheme).subscribe(theme => {
-      console.log(theme);
-    });
-    this.themes$ = this.settingsStore.select(getThemes);
+    this.themes$ = this.store.select(getThemes);
   }
 
   onThemeSelect(themeToSelect: string) {
