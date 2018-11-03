@@ -22,7 +22,7 @@ import { ShellComponent } from './containers';
     SharedModule,
 
     // Vendor
-    StoreModule.forFeature('ThemeStore', themeReducer),
+    StoreModule.forFeature('theme', themeReducer),
     EffectsModule.forFeature([])
   ],
   declarations: [
