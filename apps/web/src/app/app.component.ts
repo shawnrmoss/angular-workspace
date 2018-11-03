@@ -52,13 +52,11 @@ export class AppComponent implements OnInit, OnDestroy {
 
   private subscribeToSettings() {
     this.store.select(getSelectedTheme).subscribe(theme => {
-      console.log(theme);
       this.setTheme(theme);
     });
   }
 
-  private setTheme(selectedTheme2: string) {
-    const selectedTheme = 'default-theme';
+  private setTheme(selectedTheme: string) {
     this.componentCssClass = selectedTheme;
     const classList = this.overlayContainer.getContainerElement().classList;
     const toRemove = Array.from(classList).filter((item: string) => item.includes('-theme'));

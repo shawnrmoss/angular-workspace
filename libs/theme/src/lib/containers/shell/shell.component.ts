@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 
 // Vendors
 import { Subject, Observable } from 'rxjs';
-import { takeUntil, take } from 'rxjs/operators';
+import { take } from 'rxjs/operators';
 import { Store } from '@ngrx/store';
 
 // From Features
@@ -30,8 +30,8 @@ export class ShellComponent implements OnInit, OnDestroy {
   navigation$: Observable<string[]>;
   loading$: Observable<boolean>;
 
-  leftSideNavOpen$: Observable<boolean>;
-  rightSideNavOpen$: Observable<boolean>;
+  leftSideNavOpen: boolean;
+  rightSideNavOpen: boolean;
 
   constructor(private store: Store<ThemeState>) {}
 
@@ -39,8 +39,13 @@ export class ShellComponent implements OnInit, OnDestroy {
     this.logo$ = this.store.select(getLogo);
     this.navigation$ = this.store.select(getNavigation);
     this.loading$ = this.store.select(getLoading);
-    this.leftSideNavOpen$ = this.store.select(getLeftSideNavOpen);
-    this.rightSideNavOpen$ = this.store.select(getRightSideNavOpen);
+
+    this.store.select(getLeftSideNavOpen).subscribe(leftSideNavOpen => {
+      this.leftSideNavOpen = leftSideNavOpen;
+    });
+    this.store.select(getRightSideNavOpen).subscribe(rightSideNavOpen => {
+      this.rightSideNavOpen = rightSideNavOpen;
+    });
   }
 
   ngOnDestroy(): void {
@@ -48,10 +53,10 @@ export class ShellComponent implements OnInit, OnDestroy {
     this.unsubscribe$.complete();
   }
 
-  onToggleLeftSideNav() {
+  onToggleLeftSideNav(toggle: boolean) {
     this.store.dispatch(
       new ToggleLeftSidenav({
-        toggle: !this.leftSideNavOpen$.pipe(take(1))
+        toggle: !this.leftSideNavOpen
       })
     );
   }
@@ -59,7 +64,7 @@ export class ShellComponent implements OnInit, OnDestroy {
   onToggleRightSideNav(toggle: boolean) {
     this.store.dispatch(
       new ToggleRightSidenav({
-        toggle: !this.rightSideNavOpen$.pipe(take(1))
+        toggle: !this.rightSideNavOpen
       })
     );
   }

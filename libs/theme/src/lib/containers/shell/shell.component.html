@@ -1,5 +1,5 @@
 <mat-sidenav-container>
-    <mat-sidenav class="left-sidenav" #leftsidenav mode="over" position="start" [opened]="leftSideNavOpen$ | async" (closedStart)="onToggleLeftSideNav()">
+    <mat-sidenav class="left-sidenav" #leftsidenav mode="over" position="start" [opened]="leftSideNavOpen" (closedStart)="onToggleLeftSideNav()">
       <div class="branding">
         <img [src]="logo$ | async" />
         <span> Pocket</span>
@@ -27,7 +27,7 @@
 
     </div>
 
-    <mat-sidenav class="right-sidenav" #rightsidenav mode="over" position="end" [opened]="rightSideNavOpen$ | async" (closedStart)="onToggleRightSideNav()">
+    <mat-sidenav class="right-sidenav" #rightsidenav mode="over" position="end" [opened]="rightSideNavOpen" (closedStart)="onToggleRightSideNav()">
       <p>
         This is the right side
       </p>
