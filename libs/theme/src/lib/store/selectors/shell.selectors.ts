@@ -3,9 +3,9 @@ import { createFeatureSelector, createSelector } from '@ngrx/store';
 import { ShellState, ThemeState, initialThemeState } from '../reducers';
 
 // Selectors
-// export const getThemeState = createFeatureSelector<ThemeState>('theme');
+export const getThemeState = createFeatureSelector<ThemeState>('theme');
 
-export const getThemeState = state => <ThemeState>(state || initialThemeState);
+// export const getThemeState = state => <ThemeState>(state || initialThemeState);
 
 export const getShellState = createSelector(getThemeState, (state: ThemeState) => state.shell);
 
