@@ -24,9 +24,8 @@ import { Theme } from '@angular-workspace/theme';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SettingsFormComponent implements OnInit, OnChanges {
-  @Input() settings: Settings;
+  @Input() selectedTheme: string;
   @Input() themes: Theme[];
-
   @Output() selectTheme = new EventEmitter<string>();
 
   form = this.fb.group({
@@ -38,8 +37,8 @@ export class SettingsFormComponent implements OnInit, OnChanges {
   ngOnInit() {}
 
   ngOnChanges(changes: SimpleChanges) {
-    if (changes['settings'] && this.settings) {
-      this.form.patchValue(this.settings);
+    if (changes['selectedTheme'] && this.selectedTheme) {
+      this.form.get('selectedTheme').value(this.selectedTheme);
     }
   }
 

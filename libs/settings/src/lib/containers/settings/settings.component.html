@@ -1,9 +1,10 @@
 
 <angular-workspace-shell>
   <h1>Settings</h1>
-  <angular-workspace-settings-form>
+  <angular-workspace-settings-form
+    [selectedTheme]="selectedTheme$ | async"
     [themes]="themes$ | async"
-    (selectTheme)="onThemeSelect($event)"
+    (selectTheme)="onThemeSelect($event)" >
   </angular-workspace-settings-form>
 </angular-workspace-shell>
 

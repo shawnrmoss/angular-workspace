@@ -1,12 +1,13 @@
 // Angular
 import { Component, OnInit } from '@angular/core';
+import { MatSelectChange } from '@angular/material';
 
 // Vendors
 import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
 
 // From Core and Shared
-import { Theme, getThemes, ThemeState } from '@angular-workspace/theme';
+import { Theme, getThemes, ThemeState, SetTheme } from '@angular-workspace/theme';
 
 // From Feature
 import { Settings } from '../../models';
@@ -28,8 +29,7 @@ export class SettingsComponent implements OnInit {
     this.themes$ = this.store.select(getThemes);
   }
 
-  onThemeSelect(themeToSelect: string) {
-    console.log(themeToSelect);
-    //his.settingsStore.dispatch(new ChangeTheme(themeToSelect));
+  onThemeSelect(themeToSelect: MatSelectChange) {
+    this.store.dispatch(new SetTheme(themeToSelect.value));
   }
 }

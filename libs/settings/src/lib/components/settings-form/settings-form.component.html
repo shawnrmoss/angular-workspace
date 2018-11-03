@@ -1,8 +1,7 @@
 <form [formGroup]="form" >
   <mat-form-field >
-    <mat-icon color="accent">color_lens</mat-icon>
     <mat-label>Theme</mat-label>
-    <mat-select placeholder="Theme" formControlName="theme" (selectionChange)="onThemeSelect($event)" >
+    <mat-select placeholder="Theme" formControlName="selectedTheme" (selectionChange)="onThemeSelect($event)" >
       <mat-option *ngFor="let theme of themes" [value]="theme.value">
         {{theme.label}}
       </mat-option>

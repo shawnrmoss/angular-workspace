@@ -23,9 +23,7 @@ import {
   templateUrl: './shell.component.html',
   styleUrls: ['./shell.component.scss']
 })
-export class ShellComponent implements OnInit, OnDestroy {
-  private unsubscribe$: Subject<void> = new Subject<void>();
-
+export class ShellComponent implements OnInit {
   logo$: Observable<string>;
   navigation$: Observable<string[]>;
   loading$: Observable<boolean>;
@@ -46,11 +44,6 @@ export class ShellComponent implements OnInit, OnDestroy {
     this.store.select(getRightSideNavOpen).subscribe(rightSideNavOpen => {
       this.rightSideNavOpen = rightSideNavOpen;
     });
-  }
-
-  ngOnDestroy(): void {
-    this.unsubscribe$.next();
-    this.unsubscribe$.complete();
   }
 
   onToggleLeftSideNav(toggle: boolean) {
