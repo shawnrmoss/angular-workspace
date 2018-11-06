@@ -34,7 +34,7 @@ export class SettingsFormComponent implements OnInit, OnChanges {
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes['selectedTheme'] && this.selectedTheme) {
-      this.form.get('selectedTheme').value(this.selectedTheme);
+      this.form.patchValue({ selectedTheme: this.selectedTheme });
     }
   }
 

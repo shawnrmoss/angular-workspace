@@ -27,6 +27,7 @@ export class SettingsComponent implements OnInit {
 
   ngOnInit() {
     this.themes$ = this.themeFacade.themes$;
+    this.selectedTheme$ = this.themeFacade.selectedTheme$;
   }
 
   onThemeSelect(themeToSelect: MatSelectChange) {
