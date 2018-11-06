@@ -6,17 +6,7 @@ import { take } from 'rxjs/operators';
 import { Store } from '@ngrx/store';
 
 // From Features
-import {
-  getThemeState,
-  ThemeState,
-  ToggleLeftSidenav,
-  ToggleRightSidenav,
-  getLogo,
-  getNavigation,
-  getLoading,
-  getLeftSideNavOpen,
-  getRightSideNavOpen
-} from '../../store';
+import { ThemeState, ToggleLeftSidenav, ToggleRightSidenav, ThemeFacade } from '../../store';
 
 @Component({
   selector: 'angular-workspace-shell',
@@ -28,37 +18,25 @@ export class ShellComponent implements OnInit {
   navigation$: Observable<string[]>;
   loading$: Observable<boolean>;
 
-  leftSideNavOpen: boolean;
-  rightSideNavOpen: boolean;
+  leftSideNavOpen$: Observable<boolean>;
+  rightSideNavOpen$: Observable<boolean>;
 
-  constructor(private store: Store<ThemeState>) {}
+  constructor(private themeFacade: ThemeFacade) {}
 
   ngOnInit() {
-    this.logo$ = this.store.select(getLogo);
-    this.navigation$ = this.store.select(getNavigation);
-    this.loading$ = this.store.select(getLoading);
+    this.logo$ = this.themeFacade.logo$;
+    this.navigation$ = this.themeFacade.navigation$;
+    this.loading$ = this.themeFacade.loading$;
 
-    this.store.select(getLeftSideNavOpen).subscribe(leftSideNavOpen => {
-      this.leftSideNavOpen = leftSideNavOpen;
-    });
-    this.store.select(getRightSideNavOpen).subscribe(rightSideNavOpen => {
-      this.rightSideNavOpen = rightSideNavOpen;
-    });
+    this.leftSideNavOpen$ = this.themeFacade.leftSideNavOpen$;
+    this.rightSideNavOpen$ = this.themeFacade.rightSideNavOpen$;
   }
 
-  onToggleLeftSideNav(toggle: boolean) {
-    this.store.dispatch(
-      new ToggleLeftSidenav({
-        toggle: !this.leftSideNavOpen
-      })
-    );
+  onToggleLeftSideNav() {
+    this.themeFacade.toggleLeftSideNav();
   }
 
   onToggleRightSideNav(toggle: boolean) {
-    this.store.dispatch(
-      new ToggleRightSidenav({
-        toggle: !this.rightSideNavOpen
-      })
-    );
+    this.themeFacade.toggleRightSideNav();
   }
 }

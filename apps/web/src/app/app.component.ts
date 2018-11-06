@@ -4,12 +4,11 @@ import { OverlayContainer } from '@angular/cdk/overlay';
 import { ActivationEnd, Router } from '@angular/router';
 
 // Vendors
-import { Store, select } from '@ngrx/store';
-import { Subject, Observable } from 'rxjs';
+import { Subject } from 'rxjs';
 import { takeUntil, filter } from 'rxjs/operators';
 
 // Features
-import { SetLogo, SetNavigation, getSelectedTheme } from '@angular-workspace/theme';
+import { ThemeFacade } from '@angular-workspace/theme';
 
 // App
 import { environment as env } from '../environments/environment';
@@ -28,7 +27,7 @@ export class AppComponent implements OnInit, OnDestroy {
 
   constructor(
     public overlayContainer: OverlayContainer,
-    private store: Store<any>,
+    private themeFacade: ThemeFacade,
     private router: Router,
     private titleService: Title
   ) {}
@@ -41,8 +40,8 @@ export class AppComponent implements OnInit, OnDestroy {
     this.subscribeToRouterEvents();
 
     // TODO SM - Put these into a guard that protects the top level route.
-    this.store.dispatch(new SetLogo({ logo: this.logo }));
-    this.store.dispatch(new SetNavigation({ navigation: this.navigation }));
+    this.themeFacade.selectLogo(this.logo);
+    this.themeFacade.selectNavigation(this.navigation);
   }
 
   ngOnDestroy(): void {
@@ -51,7 +50,7 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   private subscribeToSettings() {
-    this.store.select(getSelectedTheme).subscribe(theme => {
+    this.themeFacade.selectedTheme$.subscribe(theme => {
       this.setTheme(theme);
     });
   }

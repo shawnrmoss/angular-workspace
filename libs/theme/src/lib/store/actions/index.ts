@@ -1,1 +1,1 @@
-export * from './shell.actions';
+export * from './theme.actions';

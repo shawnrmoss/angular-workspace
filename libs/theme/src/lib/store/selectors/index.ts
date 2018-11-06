@@ -1,1 +1,1 @@
-export * from './shell.selectors';
+export * from './theme.selectors';

@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
 
 // From Core and Shared
-import { Theme, getThemes, ThemeState, SetTheme } from '@angular-workspace/theme';
+import { Theme, ThemeFacade } from '@angular-workspace/theme';
 
 // From Feature
 import { Settings } from '../../models';
@@ -23,13 +23,13 @@ export class SettingsComponent implements OnInit {
 
   selectedTheme$: Observable<string>;
 
-  constructor(private store: Store<ThemeState>) {}
+  constructor(private themeFacade: ThemeFacade) {}
 
   ngOnInit() {
-    this.themes$ = this.store.select(getThemes);
+    this.themes$ = this.themeFacade.themes$;
   }
 
   onThemeSelect(themeToSelect: MatSelectChange) {
-    this.store.dispatch(new SetTheme(themeToSelect.value));
+    this.themeFacade.selectTheme(themeToSelect.value);
   }
 }

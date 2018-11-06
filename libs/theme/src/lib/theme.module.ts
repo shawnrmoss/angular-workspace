@@ -9,9 +9,10 @@ import { EffectsModule } from '@ngrx/effects';
 import { SharedModule } from '@angular-workspace/shared';
 
 // From Feature
-import { themeReducer } from './store';
 import { AppBarComponent, FooterComponent } from './components';
 import { ShellComponent } from './containers';
+import { initialState as themeInitialState, themeReducer } from './store';
+import { ThemeFacade } from './store/facades/theme.facade';
 
 @NgModule({
   imports: [
@@ -22,7 +23,7 @@ import { ShellComponent } from './containers';
     SharedModule,
 
     // Vendor
-    StoreModule.forFeature('ThemeStore', themeReducer),
+    StoreModule.forFeature('ThemeStore', themeReducer, { initialState: themeInitialState }),
     EffectsModule.forFeature([])
   ],
   declarations: [
@@ -40,6 +41,7 @@ import { ShellComponent } from './containers';
     // Components
     AppBarComponent,
     FooterComponent
-  ]
+  ],
+  providers: [ThemeFacade]
 })
 export class ThemeModule {}
