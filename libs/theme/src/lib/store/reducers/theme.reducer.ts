@@ -30,7 +30,7 @@ export const initialState: ThemeState = {
     },
     <Theme>{
       label: 'Dark',
-      value: 'dark-theme'
+      value: 'black-theme'
     }
   ],
   selectedTheme: 'default-theme'
