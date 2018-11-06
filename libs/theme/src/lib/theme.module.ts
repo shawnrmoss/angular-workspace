@@ -11,8 +11,7 @@ import { SharedModule } from '@angular-workspace/shared';
 // From Feature
 import { AppBarComponent, FooterComponent } from './components';
 import { ShellComponent } from './containers';
-import { initialState as themeInitialState, themeReducer } from './store';
-import { ThemeFacade } from './store/facades/theme.facade';
+import { initialState as themeInitialState, themeReducer, ThemeFacade } from './store';
 
 @NgModule({
   imports: [
