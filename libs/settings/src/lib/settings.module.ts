@@ -13,7 +13,6 @@ import { ThemeModule } from '@angular-workspace/theme';
 // From Feature
 import { SettingsFormComponent } from './components';
 import { SettingsComponent } from './containers';
-import { settingsReducer } from './store';
 import { SettingsRoutingModule } from './settings.routing';
 
 @NgModule({
@@ -23,9 +22,8 @@ import { SettingsRoutingModule } from './settings.routing';
     // Core and Shared
     SharedModule,
     ThemeModule,
-    // Vendor
-    StoreModule.forFeature('settings', settingsReducer),
-    EffectsModule.forFeature([]),
+
+    // Custom
     SettingsRoutingModule
   ],
   declarations: [SettingsComponent, SettingsFormComponent]
