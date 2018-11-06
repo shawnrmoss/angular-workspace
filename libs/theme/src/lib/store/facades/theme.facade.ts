@@ -5,10 +5,10 @@ import { Store } from '@ngrx/store';
 import { ThemeState } from '../reducers';
 import { themeQuery } from '../selectors/theme.selectors';
 import {
-  SelectLogo,
   ToggleLeftSidenav,
   ToggleRightSidenav,
   ToggleLoading,
+  SelectLogo,
   SelectTheme,
   SelectNavigation
 } from '../actions/theme.actions';
