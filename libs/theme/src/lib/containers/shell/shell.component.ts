@@ -1,12 +1,12 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+import { MediaMatcher } from '@angular/cdk/layout';
 
 // Vendors
-import { Subject, Observable } from 'rxjs';
-import { take } from 'rxjs/operators';
-import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
 
 // From Features
-import { ThemeState, ToggleLeftSidenav, ToggleRightSidenav, ThemeFacade } from '../../store';
+import { ThemeFacade } from '../../store';
+import { getLocaleFirstDayOfWeek } from '@angular/common';
 
 @Component({
   selector: 'angular-workspace-shell',
@@ -21,7 +21,14 @@ export class ShellComponent implements OnInit {
   leftSideNavOpen$: Observable<boolean>;
   rightSideNavOpen$: Observable<boolean>;
 
-  constructor(private themeFacade: ThemeFacade) {}
+  mobileQuery: MediaQueryList;
+  private _mobileQueryListener: () => void;
+
+  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, private themeFacade: ThemeFacade) {
+    this._mobileQueryListener = () => changeDetectorRef.detectChanges();
+    this.mobileQuery = media.matchMedia('(max-width: 1024px)');
+    this.mobileQuery.addListener(this._mobileQueryListener);
+  }
 
   ngOnInit() {
     this.logo$ = this.themeFacade.logo$;

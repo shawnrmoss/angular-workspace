@@ -1,5 +1,5 @@
 <mat-sidenav-container>
-    <mat-sidenav class="left-sidenav" #leftsidenav mode="over" position="start" [opened]="leftSideNavOpen$ | async" (closedStart)="onToggleLeftSideNav()">
+    <mat-sidenav class="left-sidenav" #leftsidenav [mode]="mobileQuery.matches ? 'over' : 'side'" position="start" [opened]="leftSideNavOpen$ | async" (closedStart)="onToggleLeftSideNav()">
       <div class="branding">
         <img [src]="logo$ | async" />
         <span> Pocket</span>
