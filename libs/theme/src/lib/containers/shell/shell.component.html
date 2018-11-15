@@ -1,9 +1,12 @@
 <aw-loading-status [loading]="loading$ | async"></aw-loading-status>
 <mat-sidenav-container>
     <mat-sidenav class="left-sidenav" #leftsidenav [mode]="mobileQuery.matches ? 'over' : 'side'" position="start" [opened]="!mobileQuery.matches || leftSideNavOpen" (closedStart)="onToggleLeftSideNav()">
-      <div class="branding">
-        <img [src]="logo$ | async" />
-        <span> Pocket</span>
+      <div class="toolbar">
+        <angular-workspace-app-bar   >
+            <mat-toolbar color="primary">
+
+            </mat-toolbar>
+        </angular-workspace-app-bar>
       </div>
       <mat-nav-list class="aw-left-sidenav">
         <a mat-list-item *ngFor="let item of navigation$ | async" (click)="onToggleLeftSideNav()" [routerLink]="[item.link]" routerLinkActive="active">
@@ -14,7 +17,25 @@
 
     <div class="wrapper">
       <div class="toolbar">
-        <angular-workspace-app-bar [logo]="logo$ | async" [loading]="loading$ | async" (toggleLeftSideNav)="onToggleLeftSideNav()" (toggleRightSideNav)="onToggleRightSideNav()" >
+        <angular-workspace-app-bar   >
+            <mat-toolbar color="primary">
+                <mat-toolbar-row>
+                  <button mat-icon-button (click)="onToggleLeftSideNav()" *ngIf="!isDetailsPage">
+                    <mat-icon>menu</mat-icon>
+                  </button>
+
+                  <span class="branding center">
+                    <img [src]="logo$ | async" /></span>
+
+                  <span class="title">Angular Workspaces</span>
+
+                  <div class="spacer"></div>
+
+                  <button mat-icon-button (click)="onToggleRightSideNav()" >
+                    <mat-icon>people</mat-icon>
+                  </button>
+                </mat-toolbar-row>
+            </mat-toolbar>
         </angular-workspace-app-bar>
       </div>
 
