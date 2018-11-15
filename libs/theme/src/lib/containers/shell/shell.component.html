@@ -1,3 +1,4 @@
+<aw-loading-status [loading]="loading$ | async"></aw-loading-status>
 <mat-sidenav-container>
     <mat-sidenav class="left-sidenav" #leftsidenav [mode]="mobileQuery.matches ? 'over' : 'side'" position="start" [opened]="!mobileQuery.matches || leftSideNavOpen" (closedStart)="onToggleLeftSideNav()">
       <div class="branding">

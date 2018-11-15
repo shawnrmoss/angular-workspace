@@ -9,7 +9,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { SharedModule } from '@angular-workspace/shared';
 
 // From Feature
-import { AppBarComponent, FooterComponent } from './components';
+import { AppBarComponent, FooterComponent, LoadingStatusComponent } from './components';
 import { ShellComponent } from './containers';
 import { initialState as themeInitialState, themeReducer, ThemeFacade } from './store';
 
@@ -31,7 +31,8 @@ import { initialState as themeInitialState, themeReducer, ThemeFacade } from './
 
     // Components
     AppBarComponent,
-    FooterComponent
+    FooterComponent,
+    LoadingStatusComponent
   ],
   exports: [
     // Containers

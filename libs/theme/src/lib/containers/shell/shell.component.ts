@@ -39,9 +39,12 @@ export class ShellComponent implements OnInit {
       this.leftSideNavOpen = leftSideNavOpen;
     });
     this.rightSideNavOpen$ = this.themeFacade.rightSideNavOpen$;
+
+    this.themeFacade.toggleLoading();
   }
 
   onToggleLeftSideNav() {
+    this.themeFacade.toggleLoading();
     this.themeFacade.toggleLeftSideNav();
   }
 
