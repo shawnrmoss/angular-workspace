@@ -18,7 +18,7 @@ export class ShellComponent implements OnInit {
   navigation$: Observable<string[]>;
   loading$: Observable<boolean>;
 
-  leftSideNavOpen$: Observable<boolean>;
+  leftSideNavOpen: boolean;
   rightSideNavOpen$: Observable<boolean>;
 
   mobileQuery: MediaQueryList;
@@ -35,7 +35,9 @@ export class ShellComponent implements OnInit {
     this.navigation$ = this.themeFacade.navigation$;
     this.loading$ = this.themeFacade.loading$;
 
-    this.leftSideNavOpen$ = this.themeFacade.leftSideNavOpen$;
+    this.themeFacade.leftSideNavOpen$.subscribe(leftSideNavOpen => {
+      this.leftSideNavOpen = leftSideNavOpen;
+    });
     this.rightSideNavOpen$ = this.themeFacade.rightSideNavOpen$;
   }
 
