@@ -1,8 +1,12 @@
-@import '~@angular/material/theming';
+@import "~@angular/material/theming";
 
 @mixin aw-web-theme($theme) {
   $primary: map-get($theme, primary);
   $accent: map-get($theme, accent);
+
+  .loading {
+    background-color: mat-color($accent, A400);
+  }
 
   mat-sidenav-container {
     mat-toolbar {
