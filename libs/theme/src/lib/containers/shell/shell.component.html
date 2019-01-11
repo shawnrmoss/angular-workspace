@@ -50,9 +50,13 @@
     </div>
 
     <mat-sidenav class="right-sidenav" #rightsidenav mode="over" position="end" [opened]="rightSideNavOpen$ | async" (closedStart)="onToggleRightSideNav()">
-      <p>
-        This is the right side
-      </p>
+      <div class="toolbar">
+        <angular-workspace-app-bar   >
+            <mat-toolbar color="primary">
+
+            </mat-toolbar>
+        </angular-workspace-app-bar>
+      </div>
     </mat-sidenav>
 
 </mat-sidenav-container>
