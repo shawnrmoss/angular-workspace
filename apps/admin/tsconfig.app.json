@@ -2,14 +2,12 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "outDir": "../../dist/out-tsc/apps/admin",
-    "types": []
+    "types": ["node"]
   },
-  "exclude": [
-    "test.ts",
-    "**/*.spec.ts",
-    "karma.conf.ts"
-  ],
+  "exclude": ["test.ts", "**/*.spec.ts", "karma.conf.ts"],
   "include": [
-    "**/*.ts"
+    "**/*.ts",
+    /* add all lazy-loaded libraries here: "../../../libs/my-lib/index.ts" */
+    "../../libs/feed/src/index.ts"
   ]
 }
