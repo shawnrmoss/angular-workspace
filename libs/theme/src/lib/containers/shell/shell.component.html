@@ -15,8 +15,8 @@
       </mat-nav-list>
     </mat-sidenav>
 
+    <aw-loading-status [loading]="loading$ | async"></aw-loading-status>
     <div class="wrapper">
-      <aw-loading-status [loading]="loading$ | async"></aw-loading-status>
       <div class="toolbar">
         <angular-workspace-app-bar   >
             <mat-toolbar color="primary">
