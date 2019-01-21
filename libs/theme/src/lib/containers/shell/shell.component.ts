@@ -1,12 +1,10 @@
-import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
-import { MediaMatcher } from '@angular/cdk/layout';
+import { Component, OnInit } from '@angular/core';
 
 // Vendors
 import { Observable } from 'rxjs';
 
 // From Features
 import { ThemeFacade } from '../../store';
-import { getLocaleFirstDayOfWeek } from '@angular/common';
 
 @Component({
   selector: 'angular-workspace-shell',
