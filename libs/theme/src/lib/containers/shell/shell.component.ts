@@ -18,26 +18,17 @@ export class ShellComponent implements OnInit {
   navigation$: Observable<string[]>;
   loading$: Observable<boolean>;
 
-  leftSideNavOpen: boolean;
+  leftSideNavOpen$: Observable<boolean>;
   rightSideNavOpen$: Observable<boolean>;
 
-  mobileQuery: MediaQueryList;
-  private _mobileQueryListener: () => void;
-
-  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, private themeFacade: ThemeFacade) {
-    this._mobileQueryListener = () => changeDetectorRef.detectChanges();
-    this.mobileQuery = media.matchMedia('(max-width: 1024px)');
-    this.mobileQuery.addListener(this._mobileQueryListener);
-  }
+  constructor(private themeFacade: ThemeFacade) {}
 
   ngOnInit() {
     this.logo$ = this.themeFacade.logo$;
     this.navigation$ = this.themeFacade.navigation$;
     this.loading$ = this.themeFacade.loading$;
 
-    this.themeFacade.leftSideNavOpen$.subscribe(leftSideNavOpen => {
-      this.leftSideNavOpen = leftSideNavOpen;
-    });
+    this.leftSideNavOpen$ = this.themeFacade.leftSideNavOpen$;
     this.rightSideNavOpen$ = this.themeFacade.rightSideNavOpen$;
   }
 
