@@ -65,15 +65,9 @@
           }
         },
         "test": {
-          "builder": "@angular-devkit/build-angular:karma",
+          "builder": "@angular-builders/jest:run",
           "options": {
-            "main": "apps/web/src/test.ts",
-            "polyfills": "apps/web/src/polyfills.ts",
-            "tsConfig": "apps/web/tsconfig.spec.json",
-            "karmaConfig": "apps/web/karma.conf.js",
-            "styles": ["apps/web/src/styles.scss"],
-            "scripts": [],
-            "assets": ["apps/web/src/favicon.ico", "apps/web/src/assets"]
+            "rootDir": "./"
           }
         },
         "lint": {
@@ -172,15 +166,9 @@
           }
         },
         "test": {
-          "builder": "@angular-devkit/build-angular:karma",
+          "builder": "@angular-builders/jest:run",
           "options": {
-            "main": "apps/admin/src/test.ts",
-            "polyfills": "apps/admin/src/polyfills.ts",
-            "tsConfig": "apps/admin/tsconfig.spec.json",
-            "karmaConfig": "apps/admin/karma.conf.js",
-            "styles": ["apps/admin/src/styles.scss"],
-            "scripts": [],
-            "assets": ["apps/admin/src/favicon.ico", "apps/admin/src/assets"]
+            "rootDir": "./"
           }
         },
         "lint": {
@@ -230,11 +218,9 @@
       },
       "architect": {
         "test": {
-          "builder": "@angular-devkit/build-angular:karma",
+          "builder": "@angular-builders/jest:run",
           "options": {
-            "main": "libs/core/src/test.ts",
-            "tsConfig": "libs/core/tsconfig.spec.json",
-            "karmaConfig": "libs/core/karma.conf.js"
+            "rootDir": "./"
           }
         },
         "lint": {
@@ -259,11 +245,9 @@
       },
       "architect": {
         "test": {
-          "builder": "@angular-devkit/build-angular:karma",
+          "builder": "@angular-builders/jest:run",
           "options": {
-            "main": "libs/shared/src/test.ts",
-            "tsConfig": "libs/shared/tsconfig.spec.json",
-            "karmaConfig": "libs/shared/karma.conf.js"
+            "rootDir": "./"
           }
         },
         "lint": {
@@ -288,11 +272,9 @@
       },
       "architect": {
         "test": {
-          "builder": "@angular-devkit/build-angular:karma",
+          "builder": "@angular-builders/jest:run",
           "options": {
-            "main": "libs/theme/src/test.ts",
-            "tsConfig": "libs/theme/tsconfig.spec.json",
-            "karmaConfig": "libs/theme/karma.conf.js"
+            "rootDir": "./"
           }
         },
         "lint": {
@@ -317,11 +299,9 @@
       },
       "architect": {
         "test": {
-          "builder": "@angular-devkit/build-angular:karma",
+          "builder": "@angular-builders/jest:run",
           "options": {
-            "main": "libs/settings/src/test.ts",
-            "tsConfig": "libs/settings/tsconfig.spec.json",
-            "karmaConfig": "libs/settings/karma.conf.js"
+            "rootDir": "./"
           }
         },
         "lint": {
@@ -346,11 +326,9 @@
       },
       "architect": {
         "test": {
-          "builder": "@angular-devkit/build-angular:karma",
+          "builder": "@angular-builders/jest:run",
           "options": {
-            "main": "libs/feed/src/test.ts",
-            "tsConfig": "libs/feed/tsconfig.spec.json",
-            "karmaConfig": "libs/feed/karma.conf.js"
+            "rootDir": "./"
           }
         },
         "lint": {
@@ -369,11 +347,9 @@
       "prefix": "angular-workspace",
       "architect": {
         "test": {
-          "builder": "@angular-devkit/build-angular:karma",
+          "builder": "@angular-builders/jest:run",
           "options": {
-            "main": "libs/common/src/test.ts",
-            "tsConfig": "libs/common/tsconfig.spec.json",
-            "karmaConfig": "libs/common/karma.conf.js"
+            "rootDir": "./"
           }
         },
         "lint": {

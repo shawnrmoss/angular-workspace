@@ -15,6 +15,12 @@
       }
     },
     {
+      "files": "*.html",
+      "options": {
+        "htmlWhitespaceSensitivity": "ignore"
+      }
+    },
+    {
       "files": ".prettierrc",
       "options": {
         "tabWidth": 2,
