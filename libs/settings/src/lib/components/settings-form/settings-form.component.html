@@ -1,0 +1,10 @@
+<form [formGroup]="form" >
+  <mat-form-field >
+    <mat-label>Theme</mat-label>
+    <mat-select placeholder="Theme" formControlName="selectedTheme" (selectionChange)="onThemeSelect($event)" >
+      <mat-option *ngFor="let theme of themes" [value]="theme.value">
+        {{theme.label}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</form>

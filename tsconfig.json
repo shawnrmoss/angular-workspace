@@ -16,7 +16,26 @@
     ],
     "baseUrl": ".",
     "paths": {
-    }
+      "@angular-workspace/core": [
+        "libs/core/src/index.ts"
+      ],
+      "@angular-workspace/shared": [
+        "libs/shared/src/index.ts"
+      ],
+      "@angular-workspace/theme": [
+        "libs/theme/src/index.ts"
+      ],
+      "@angular-workspace/settings": [
+        "libs/settings/src/index.ts"
+      ],
+      "@angular-workspace/feed": [
+        "libs/feed/src/index.ts"
+      ],
+      "@angular-workspace/common": [
+        "libs/common/src/index.ts"
+      ]
+    },
+    "module": "es2015"
   },
   "exclude": [
     "node_modules",

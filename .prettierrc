@@ -1,3 +1,25 @@
 {
-  "singleQuote": true
+  "singleQuote": false,
+  "printWidth": 120,
+  "overrides": [
+    {
+      "files": "*.ts",
+      "options": {
+        "singleQuote": true
+      }
+    },
+    {
+      "files": "*.scss",
+      "options": {
+        "singleQuote": false
+      }
+    },
+    {
+      "files": ".prettierrc",
+      "options": {
+        "tabWidth": 2,
+        "parser": "json"
+      }
+    }
+  ]
 }

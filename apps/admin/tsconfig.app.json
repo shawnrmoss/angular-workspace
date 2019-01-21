@@ -1,0 +1,18 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../../dist/out-tsc/apps/admin",
+    "types": [
+      "node"
+    ]
+  },
+  "exclude": [
+    "test.ts",
+    "**/*.spec.ts",
+    "karma.conf.ts"
+  ],
+  "include": [
+    "**/*.ts",
+    "../../libs/feed/src/index.ts"
+  ]
+}

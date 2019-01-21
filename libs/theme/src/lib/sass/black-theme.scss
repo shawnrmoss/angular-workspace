@@ -1,0 +1,9 @@
+$aw-black-primary: mat-palette($mat-grey, 900, 500, 900);
+$aw-black-accent: mat-palette($mat-green, A200);
+$aw-black-warn: mat-palette($mat-red, A200);
+
+$aw-black-theme: mat-dark-theme(
+  $aw-black-primary,
+  $aw-black-accent,
+  $aw-black-warn
+);
